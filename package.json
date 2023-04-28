@@ -1,0 +1,51 @@
+{
+	"name": "civil-democracy",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"check:format": "prettier --check .",
+		"check:types": "tsc --pretty --noEmit",
+		"format": "prettier --write .",
+		"prepare": "husky install"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.10.6",
+		"@emotion/server": "^11.10.0",
+		"@mantine/carousel": "^6.0.9",
+		"@mantine/core": "^6.0.9",
+		"@mantine/dates": "^6.0.9",
+		"@mantine/dropzone": "^6.0.9",
+		"@mantine/form": "^6.0.9",
+		"@mantine/hooks": "^6.0.9",
+		"@mantine/next": "^6.0.9",
+		"@mantine/notifications": "^6.0.9",
+		"@mantine/nprogress": "^6.0.9",
+		"@types/node": "18.16.1",
+		"@types/react": "18.2.0",
+		"@types/react-dom": "18.2.1",
+		"dayjs": "^1.11.7",
+		"embla-carousel-react": "^8.0.0-rc01",
+		"eslint": "8.39.0",
+		"eslint-config-next": "13.3.1",
+		"lodash": "^4.17.21",
+		"next": "13.3.1",
+		"next-auth": "^4.22.1",
+		"next-seo": "^6.0.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"styled-components": "^5.3.10",
+		"typescript": "5.0.4"
+	},
+	"packageManager": "yarn@3.5.0",
+	"devDependencies": {
+		"@types/lodash": "^4",
+		"@types/prettier": "^2",
+		"@types/styled-components": "^5",
+		"husky": "^8.0.0",
+		"prettier": "^2.8.8"
+	}
+}
