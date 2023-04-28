@@ -1,4 +1,5 @@
 import { AppShell, Grid, Header, Image } from '@mantine/core'
+import { signIn, signOut, useSession } from 'next-auth/react'
 
 import { FindYourOpenActor } from './FindYourOpenActor'
 import { selectFont } from '@/utils/themeUtils'
@@ -42,7 +43,7 @@ const Login: React.FC = () => {
 					<P>Create an account</P>
 					<StyledButton
 						onClick={() => {
-							console.log('login clicked')
+							signIn()
 						}}
 					>
 						Login
