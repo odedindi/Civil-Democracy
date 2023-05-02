@@ -1,4 +1,4 @@
-import { Box, Image } from '@mantine/core'
+import { Image } from '@mantine/core'
 import { selectColor, selectFont, selectSpacing } from '@/utils/themeUtils'
 
 import styled from 'styled-components'

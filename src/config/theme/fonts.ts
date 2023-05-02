@@ -7,7 +7,7 @@ const fonts = {
 	`,
 	h2: css`
 		font-size: 28px;
-		font-weight: 600;
+		font-weight: 700;
 	`,
 	h3: css`
 		font-size: 24px;
@@ -35,8 +35,7 @@ const fonts = {
 	`,
 	bodyMd: css`
 		font-size: 14px;
-
-		font-weight: 500;
+		font-weight: 400;
 	`,
 	bodySm: css`
 		font-size: 12px;
@@ -44,8 +43,12 @@ const fonts = {
 	`,
 	bodyXs: css`
 		font-size: 9px;
-
 		font-weight: 500;
+	`,
+	camptonMd: css`
+		font-family: 'Campton';
+		font-size: 14px;
+		font-weight: 400;
 	`,
 }
 
