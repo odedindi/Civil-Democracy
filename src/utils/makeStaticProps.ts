@@ -4,7 +4,7 @@ import { ParsedUrlQuery } from 'querystring'
 import i18nextConfig from '../../next-i18next.config'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-type GetStaticPropsContext<Q extends ParsedUrlQuery = ParsedUrlQuery> = {
+export type GetStaticPropsContext<Q extends ParsedUrlQuery = ParsedUrlQuery> = {
 	params?: Q
 	preview?: boolean
 	previewData?: PreviewData
@@ -12,12 +12,12 @@ type GetStaticPropsContext<Q extends ParsedUrlQuery = ParsedUrlQuery> = {
 	locales?: string[]
 	defaultLocale?: string
 }
-type GetStaticPropsResult<P> =
+export type GetStaticPropsResult<P> =
 	| { props: P; revalidate?: number | boolean }
 	| { redirect: Redirect; revalidate?: number | boolean }
 	| { notFound: true }
 
-type GetStaticProps<
+export type GetStaticProps<
 	P extends { [key: string]: unknown } = { [key: string]: unknown },
 	Q extends ParsedUrlQuery = ParsedUrlQuery,
 > = (

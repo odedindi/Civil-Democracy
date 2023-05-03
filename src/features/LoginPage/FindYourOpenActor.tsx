@@ -1,7 +1,9 @@
-import { Box, Image } from '@mantine/core'
+import { Image } from '@mantine/core'
 import { selectColor, selectFont, selectSpacing } from '@/utils/themeUtils'
 
 import styled from 'styled-components'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
 
 const Base = styled.div`
 	height: 80vh;
@@ -66,7 +68,7 @@ const Title = styled.h1`
 	width: 400px;
 	padding-left: ${selectSpacing(3)}px;
 `
-const A = styled.p`
+const A = styled(Link)`
 	z-index: 2;
 	text-decoration-line: underline;
 	${selectFont('bodyLg')};
@@ -76,15 +78,18 @@ const A = styled.p`
 	width: 260px;
 `
 
-export const FindYourOpenActor: React.FC = () => (
-	<Base>
-		<Container>
-			<DarkCircle />
-			<BrightCircle />
-			<BrightVector />
-			<DarkVector />
-		</Container>
-		<Title>{'Find Your Open\nActor'}</Title>
-		<A>Learn about Civil Democracy</A>
-	</Base>
-)
+export const FindYourOpenActor: React.FC = () => {
+	const { t } = useTranslation('common', { keyPrefix: 'login.findYourOpenActor' })
+	return (
+		<Base>
+			<Container>
+				<DarkCircle />
+				<BrightCircle />
+				<BrightVector />
+				<DarkVector />
+			</Container>
+			<Title>{t('title')}</Title>
+			<A href={'#'}>{t('linkLabel')}</A>
+		</Base>
+	)
+}

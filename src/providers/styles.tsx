@@ -1,14 +1,7 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import { MantineProvider } from '@mantine/core'
-import { Work_Sans } from 'next/font/google'
 import theme from '@/config/theme'
-
-const workSans = Work_Sans({
-	weight: ['400', '500', '600', '700'],
-	style: ['normal', 'italic'],
-	subsets: ['latin'],
-})
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -31,7 +24,8 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     ${theme.fonts.body}
     line-height: 1.2;
-    font-family: ${workSans.style.fontFamily};
+    font-family: 'Work Sans';
+
     font-style: normal;
     letter-spacing: 0;
   }
@@ -71,7 +65,9 @@ const GlobalStyles = createGlobalStyle`
 const StylesProvider: React.FC<React.PropsWithChildren> = ({ children }) => (
 	<ThemeProvider theme={theme}>
 		<GlobalStyles />
-		<MantineProvider inherit>{children}</MantineProvider>
+		<MantineProvider withNormalizeCSS inherit>
+			{children}
+		</MantineProvider>
 	</ThemeProvider>
 )
 export default StylesProvider

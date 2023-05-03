@@ -1,4 +1,24 @@
 {
 	"hello": "Hallo Welt",
-	"lang": "Deutsch"
+	"lang": "Deutsch",
+
+	"login": {
+		"findYourOpenActor": {
+			"title": "Finden Sie Ihren offenen\nSchauspieler",
+			"linkLabel": "Mehr über Zivildemokratie erfahren"
+		},
+		"createAccount": "Create an account",
+		"login": "Anmelden",
+		"loginNow": "Jetzt Anmelden",
+		"welcomeBack": "Willkommen zurück!",
+		"forgotPassword": "Passwort vergessen?",
+		"dontHaveAccount": "Sie haben kein Konto?",
+		"footer": {
+			"instantUpdates": "Sofortige Updates um"
+		},
+		"loginForm": {
+			"username": "Benutzername",
+			"password": "Passwort"
+		}
+	}
 }
