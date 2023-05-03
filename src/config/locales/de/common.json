@@ -9,16 +9,16 @@
 		},
 		"createAccount": "Create an account",
 		"login": "Anmelden",
-		"loginNow": "Anmelden Now",
-		"welcomeBack": "Welcome back!",
-		"forgotPassword": "Forgot password?",
-		"dontHaveAccount": "Don't have an account?",
+		"loginNow": "Jetzt Anmelden",
+		"welcomeBack": "Willkommen zurück!",
+		"forgotPassword": "Passwort vergessen?",
+		"dontHaveAccount": "Sie haben kein Konto?",
 		"footer": {
-			"instantUpdates": "Instant Updates at"
+			"instantUpdates": "Sofortige Updates um"
 		},
 		"loginForm": {
-			"username": "Username",
-			"password": "Password"
+			"username": "Benutzername",
+			"password": "Passwort"
 		}
 	}
 }

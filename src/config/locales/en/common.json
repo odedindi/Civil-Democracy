@@ -8,17 +8,17 @@
 			"linkLabel": "Learn about Civil Democracy"
 		},
 		"createAccount": "Create an account",
-		"login": "Anmelden",
-		"loginNow": "Jetzt Anmelden",
-		"welcomeBack": "Willkommen zurück!",
-		"forgotPassword": "Passwort vergessen?",
-		"dontHaveAccount": "Sie haben kein Konto?",
+		"login": "Login",
+		"loginNow": "Login Now",
+		"welcomeBack": "Welcome back!",
+		"forgotPassword": "Forgot password?",
+		"dontHaveAccount": "Don't have an account?",
 		"footer": {
-			"instantUpdates": "Sofortige Updates um"
+			"instantUpdates": "Instant Updates at"
 		},
 		"loginForm": {
-			"username": "Benutzername",
-			"password": "Passwort"
+			"username": "Username",
+			"password": "Password"
 		}
 	}
 }
