@@ -2,6 +2,7 @@ import { Image } from '@mantine/core'
 
 import { selectColor, selectFont, selectSpacing } from '@/utils/themeUtils'
 import styled from 'styled-components'
+import { useTranslation } from 'next-i18next'
 
 const Base = styled.div`
 	display: grid;
@@ -39,14 +40,18 @@ const P = styled.p`
 	bottom: ${selectSpacing(0.5)}px;
 `
 
-const LoginNowHeader: React.FC = () => (
-	<Base>
-		<IconContainer>
-			<Image src="/assets/icons/login.svg" alt="login-icon" width={48} height={48} />
-		</IconContainer>
-		<H2>Login Now</H2>
-		<P>Welcome back!</P>
-	</Base>
-)
+const LoginNowHeader: React.FC = () => {
+	const { t } = useTranslation('common', { keyPrefix: 'login' })
+
+	return (
+		<Base>
+			<IconContainer>
+				<Image src="/assets/icons/login.svg" alt="login-icon" width={48} height={48} />
+			</IconContainer>
+			<H2>{t('loginNow')}</H2>
+			<P>{t('welcomeBack')}</P>
+		</Base>
+	)
+}
 
 export default LoginNowHeader

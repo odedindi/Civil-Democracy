@@ -1,0 +1,24 @@
+{
+	"hello": "Hello World",
+	"lang": "English",
+
+	"login": {
+		"findYourOpenActor": {
+			"title": "Find Your Open\nActor",
+			"linkLabel": "Learn about Civil Democracy"
+		},
+		"createAccount": "Create an account",
+		"login": "Anmelden",
+		"loginNow": "Jetzt Anmelden",
+		"welcomeBack": "Willkommen zurück!",
+		"forgotPassword": "Passwort vergessen?",
+		"dontHaveAccount": "Sie haben kein Konto?",
+		"footer": {
+			"instantUpdates": "Sofortige Updates um"
+		},
+		"loginForm": {
+			"username": "Benutzername",
+			"password": "Passwort"
+		}
+	}
+}

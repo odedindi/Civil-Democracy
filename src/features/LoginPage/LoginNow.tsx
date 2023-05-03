@@ -1,10 +1,12 @@
 import { Image, ActionIcon } from '@mantine/core'
 
-import { selectColor, selectFont, selectSpacing } from '@/utils/themeUtils'
+import { selectColor, selectFont, selectSpacing, setOpacity } from '@/utils/themeUtils'
 import styled from 'styled-components'
 import Input from '@/primitive/Input'
 import Link from 'next/link'
 import LoginNowHeader from './LoginNowHeader'
+import { useTranslation } from 'next-i18next'
+import React, { useState } from 'react'
 
 const Base = styled.div`
 	margin: auto;
@@ -28,14 +30,20 @@ const BlueContainer = styled.div`
 const Button = styled.button`
 	width: 167px;
 	height: 51px;
-	background: white;
-	color: black;
+	background: ${selectColor('white')};
+	color: ${selectColor('black')};
 	${selectFont('body')};
 	border-radius: ${selectSpacing(1)}px;
 	font-family: 'Work Sans';
+
+	transition: color, background, 0.2s ease;
+	:disabled {
+		color: ${selectColor('blue')};
+		background: ${selectColor('white', (color) => setOpacity(color, 0.5))};
+	}
 `
 
-const A = styled.a`
+const A = styled(Link)`
 	${selectFont('camptonMd')}
 	color: ${selectColor('white')};
 	text-decoration: underline;
@@ -64,33 +72,53 @@ const P = styled.p`
 `
 
 const LoginNow: React.FC = () => {
+	const { t } = useTranslation('common', { keyPrefix: 'login' })
+
+	const [loginForm, setLoginForm] = useState({ username: '', password: '' })
+
 	return (
 		<Base>
 			<BlueContainer>
 				<LoginNowHeader />
-				<Input
-					label="Username"
-					icon={<Image src="/assets/icons/user.svg" alt="user-icon" />}
-					style={{ marginBottom: `${selectSpacing(5.25)}px` }}
-				/>
+				<form
+					onSubmit={(e) => {
+						e.preventDefault()
+						console.log('login clicked', loginForm)
+					}}
+				>
+					<Input
+						label={t('loginForm.username')}
+						icon={<Image src="/assets/icons/user.svg" alt="user-icon" />}
+						style={{ marginBottom: `${selectSpacing(5.25)}px` }}
+						value={loginForm.username}
+						onChange={({ target }) => setLoginForm((prev) => ({ ...prev, username: target.value }))}
+					/>
 
-				<Input
-					type="password"
-					label="Password"
-					style={{ marginBottom: `${selectSpacing(2.5)}px` }}
-				/>
-				<Link href="#" passHref style={{ marginBottom: `${selectSpacing(5)}px` }}>
-					<A>Forgot password?</A>
-				</Link>
-				<Row>
-					<Button>Login Now</Button>
-					<Link href="#" passHref>
-						<A>Don't have an account?</A>
-					</Link>
-				</Row>
+					<Input
+						type="password"
+						label={t('loginForm.password')}
+						style={{ marginBottom: `${selectSpacing(2.5)}px` }}
+						value={loginForm.password}
+						onChange={({ target }) => setLoginForm((prev) => ({ ...prev, password: target.value }))}
+					/>
+					<A href="#" passHref style={{ marginBottom: `${selectSpacing(5)}px` }}>
+						{t('forgotPassword')}
+					</A>
+					<Row>
+						<Button
+							type="submit"
+							disabled={!loginForm.username.length || !loginForm.password.length}
+						>
+							{t('loginNow')}
+						</Button>
+						<A href="#" passHref>
+							{t('dontHaveAccount')}
+						</A>
+					</Row>
+				</form>
 			</BlueContainer>
 			<Footer>
-				<P>Instant Updates at</P>
+				<P>{t('footer.instantUpdates')}</P>
 				<Row style={{ gap: `${selectSpacing(4)}px` }}>
 					<ActionIcon variant="transparent" component={Link} href={'#'} title="Instagram">
 						<Image src="/assets/icons/instagram.svg" alt="user-icon" width={24} />
