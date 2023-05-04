@@ -1,0 +1,26 @@
+{
+	"hello": "سلام دنیا",
+	"lang": "فارسی",
+
+	"login": {
+		"findYourOpenActor": {
+			"title": "نماینده خود را /nپیدا کنید",
+			"linkLabel": "درباره دموکراسی مدنی بیاموزید"
+		},
+		"createAccount": "ایجاد یک حساب کاربری",
+		"help": "کمک",
+		"login": "ورود به سیستم",
+		"loginNow": "اکنون وارد شوید",
+		"loginWithCredentials": "با اعتبار خود وارد شوید",
+		"welcomeBack": "خوش آمدید!",
+		"forgotPassword": "رمز عبور را فراموش کرده اید؟",
+		"dontHaveAccount": "حساب ندارید؟",
+		"footer": {
+			"instantUpdates": "به روز رسانی های فوری در"
+		},
+		"loginForm": {
+			"username": "نام کاربری",
+			"password": "رمز عبور"
+		}
+	}
+}
