@@ -1,9 +1,9 @@
-import { Image } from '@mantine/core'
 import { selectColor, selectFont, selectSpacing } from '@/utils/themeUtils'
 
+import { Image } from '@mantine/core'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
 
 const Base = styled.div`
 	height: 75vh;
@@ -36,7 +36,7 @@ const BlueCircle = styled(Image).attrs({
 })`
 	position: relative;
 	top: -${selectSpacing(35)}px;
-	left: ${selectSpacing(42.5)}px;
+	padding-inline-start: ${selectSpacing(42.5)}px;
 `
 
 const DarkCircle = styled(Image).attrs({
@@ -57,7 +57,7 @@ const BrightVector = styled(Image).attrs({
 })`
 	position: relative;
 	top: -${selectSpacing(75)}px;
-	left: ${selectSpacing(32.5)}px;
+	padding-inline-start: ${selectSpacing(32.5)}px;
 `
 
 const DarkVector = styled(Image).attrs({
@@ -67,7 +67,7 @@ const DarkVector = styled(Image).attrs({
 })`
 	position: relative;
 	top: -${selectSpacing(34)}px;
-	left: -${selectSpacing(5)}px;
+	margin-inline-start: ${selectSpacing(5)}px;
 `
 
 const Title = styled.h1`
@@ -77,8 +77,8 @@ const Title = styled.h1`
 	white-space: pre-line;
 	word-break: break-all;
 	color: ${selectColor('black')};
-	width: 400px;
-	padding-left: ${selectSpacing(3)}px;
+	width: 415px;
+	padding-inline-start: ${selectSpacing(3)}px;
 
 	position: relative;
 	bottom: ${selectSpacing(3)}px;
@@ -90,7 +90,7 @@ const A = styled(Link)`
 	color: ${selectColor('blue')};
 	position: relative;
 	bottom: ${selectSpacing(3)}px;
-	left: -${selectSpacing(5.25)}px;
+	margin-inline-start: -${selectSpacing(12.5)}px;
 
 	width: 260px;
 `

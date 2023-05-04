@@ -30,11 +30,13 @@ export default class _Document extends Document {
 	}
 
 	render() {
-		const currentLocale =
-			(this.props.__NEXT_DATA__.query.locale as string) ?? i18nextConfig.i18n.defaultLocale
+		const currentLocale = this.props.locale ?? i18nextConfig.i18n.defaultLocale
 
 		return (
-			<Html lang={currentLocale}>
+			<Html
+				lang={currentLocale}
+				dir={i18nextConfig.rtlLocales.includes(currentLocale) ? 'rtl' : 'ltr'}
+			>
 				<Head>
 					<link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link rel="preconnect" href="https://fonts.gstatic.com" />

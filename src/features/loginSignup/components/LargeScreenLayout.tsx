@@ -81,7 +81,7 @@ const Row = styled.div`
 const LoginForm: React.FC = () => {
 	const { t } = useTranslation('common', { keyPrefix: 'login' })
 	const { username, password, onUsernameChange, onPasswordChange, onSubmit } = useLogin()
-	
+
 	const [hideText, setHideText] = useState(true)
 	const toggleHideText = () => setHideText((prev) => !prev)
 	return (

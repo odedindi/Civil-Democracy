@@ -1,8 +1,9 @@
 import { selectColor, selectFont, selectSpacing } from '@/utils/themeUtils'
+
+import { Color } from '@/config/theme'
+import React from 'react'
 import styled from 'styled-components'
 import { useId } from '@mantine/hooks'
-import React from 'react'
-import { Color } from '@/config/theme'
 
 const Base = styled.div<{
 	color?: Color
@@ -17,7 +18,7 @@ const Base = styled.div<{
 		height: 56px;
 
 		padding: ${selectSpacing(1.5)}px;
-		padding-right: ${({ withIcon }) => (withIcon ? `${selectSpacing(5)}px` : undefined)};
+		padding-inline-end: ${({ withIcon }) => (withIcon ? `${selectSpacing(5)}px` : undefined)};
 		outline: none;
 		border: 1px solid ${({ color = 'black' }) => selectColor(color)} !important;
 
@@ -41,7 +42,9 @@ const Base = styled.div<{
 
 	label {
 		position: absolute;
-		left: 10px;
+
+		left: ${({ theme: { dir } }) => (dir === 'ltr' ? `${selectSpacing(1.25)}px` : undefined)};
+		right: ${({ theme: { dir } }) => (dir === 'rtl' ? `${selectSpacing(1.25)}px` : undefined)};
 		transform: translateY(-50%);
 
 		background: ${({ backgroundColor = 'white' }) => selectColor(backgroundColor)};
@@ -54,7 +57,8 @@ const Icon = styled.span`
 	padding: ${selectSpacing(0.5)}px;
 	position: absolute;
 
-	right: ${selectSpacing(1.5)}px;
+	right: ${({ theme: { dir } }) => (dir === 'ltr' ? `${selectSpacing(1.5)}px` : undefined)};
+	left: ${({ theme: { dir } }) => (dir === 'rtl' ? `${selectSpacing(1.5)}px` : undefined)};
 	transform: translateY(50%);
 `
 export type InputProps = {

@@ -1,0 +1,26 @@
+{
+	"hello": "שלום עולם",
+	"lang": "עברית",
+
+	"login": {
+		"findYourOpenActor": {
+			"title": "מצא/י את הנציג\nהחופשי",
+			"linkLabel": "למד עוד על דמוקרטיה אזרחית"
+		},
+		"createAccount": "צור חשבון",
+		"help": "עזרה",
+		"login": "התחבר/י",
+		"loginNow": "התחבר/י כעת",
+		"loginWithCredentials": "התחבר/י באמצעות פרטיך",
+		"welcomeBack": "ברוכים השבים",
+		"forgotPassword": "שכחת את הסיסמה?",
+		"dontHaveAccount": "אין לך עדיין חשבון?",
+		"footer": {
+			"instantUpdates": "לעדכונים מיידים"
+		},
+		"loginForm": {
+			"username": "שם משתמש",
+			"password": "סיסמא"
+		}
+	}
+}

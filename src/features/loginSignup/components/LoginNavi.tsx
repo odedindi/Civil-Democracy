@@ -1,9 +1,9 @@
-import { Image } from '@mantine/core'
-
 import { selectColor, selectFont, selectMediaQuery, selectSpacing } from '@/utils/themeUtils'
 import styled, { css } from 'styled-components'
-import { useTranslation } from 'next-i18next'
+
+import { Image } from '@mantine/core'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 
 const ShowOnLargeScreen = css`
 	display: none;

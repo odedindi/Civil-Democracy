@@ -1,21 +1,21 @@
-import styled from 'styled-components'
+import { selectColor, selectFont, selectMediaQuery, selectSpacing } from '@/utils/themeUtils'
 
-import { selectMediaQuery, selectColor, selectFont, selectSpacing } from '@/utils/themeUtils'
-import { useTranslation } from 'next-i18next'
-import { useState } from 'react'
-import Input from '@/ui/primitive/Input'
-import { Image } from '@mantine/core'
-import Link from 'next/link'
 import ClickableIcon from '@/ui/primitive/ClickableIcon'
 import { Color } from '@/config/theme'
+import { Image } from '@mantine/core'
+import Input from '@/ui/primitive/Input'
+import Link from 'next/link'
+import styled from 'styled-components'
 import { useLogin } from '../hooks/useLogin'
+import { useState } from 'react'
+import { useTranslation } from 'next-i18next'
 
 const Base = styled.span`
 	display: flex;
 	flex-direction: column;
 
 	margin: auto;
-	padding: ${selectSpacing(15)}px ${selectSpacing(2.5)}px;
+	padding: ${selectSpacing(10)}px ${selectSpacing(2.5)}px;
 	${selectMediaQuery('laptop')} {
 		display: none;
 	}

@@ -1,7 +1,9 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import theme, { Dir } from '@/config/theme'
 
 import { MantineProvider } from '@mantine/core'
-import theme from '@/config/theme'
+import nextI18nextConfig from '../../next-i18next.config'
+import { useRouter } from 'next/router'
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -60,12 +62,17 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-const StylesProvider: React.FC<React.PropsWithChildren> = ({ children }) => (
-	<ThemeProvider theme={theme}>
-		<GlobalStyles />
-		<MantineProvider withNormalizeCSS inherit>
-			{children}
-		</MantineProvider>
-	</ThemeProvider>
-)
+const StylesProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+	const activeLocale = useRouter().locale
+	const isRtl = !!activeLocale && nextI18nextConfig.rtlLocales.includes(activeLocale)
+	const dir: Dir = isRtl ? 'rtl' : 'ltr'
+	return (
+		<ThemeProvider theme={{ ...theme, dir }}>
+			<GlobalStyles />
+			<MantineProvider withNormalizeCSS inherit>
+				{children}
+			</MantineProvider>
+		</ThemeProvider>
+	)
+}
 export default StylesProvider

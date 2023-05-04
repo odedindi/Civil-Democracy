@@ -69,11 +69,8 @@ export const setOpacity = (hex: string, opacity: number) => {
 		.toString(16)
 		.padStart(2, '0')
 	return `#${color}`.toUpperCase()
-
-	// return `${hex}${Math.floor(opacity * 255)
-	// 	.toString(16)
-	// 	.padStart(2, "0")}`
 }
+
 export const devices = {
 	phone: 320,
 	tablet: 768,
