@@ -2,8 +2,8 @@ import { css } from 'styled-components'
 
 const fonts = {
 	h1: css`
-		font-size: 48px;
-		font-weight: 600;
+		font-size: 44px;
+		font-weight: 700;
 	`,
 	h2: css`
 		font-size: 28px;
@@ -45,7 +45,17 @@ const fonts = {
 		font-size: 9px;
 		font-weight: 500;
 	`,
+	campton: css`
+		font-family: 'Campton';
+		font-size: 16px;
+		font-weight: 400;
+	`,
 	camptonMd: css`
+		font-family: 'Campton';
+		font-size: 14px;
+		font-weight: 400;
+	`,
+	camptonSm: css`
 		font-family: 'Campton';
 		font-size: 14px;
 		font-weight: 400;

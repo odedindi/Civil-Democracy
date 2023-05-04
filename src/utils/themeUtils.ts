@@ -108,7 +108,7 @@ export const selectCustomMediaQuery = (mediaQuery: MediaQuery, ...rest: MediaQue
     `
 }
 
-export const mediaQuery = {
+const mediaQuery = {
 	phone: selectCustomMediaQuery({ 'min-width': devices.phone }),
 	tablet: selectCustomMediaQuery({ 'min-width': devices.tablet }),
 	laptop: selectCustomMediaQuery({ 'min-width': devices.laptop }),

@@ -6,7 +6,7 @@ import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 
 const Base = styled.div`
-	height: 80vh;
+	height: 75vh;
 	display: flex;
 	flex-direction: column;
 
@@ -28,6 +28,17 @@ const BrightCircle = styled(Image).attrs({
 	position: relative;
 	top: -${selectSpacing(30.5)}px;
 `
+const BlueCircle = styled(Image).attrs({
+	src: '/assets/Ellipse 2.svg',
+	alt: '',
+	height: 48,
+	width: 48,
+})`
+	position: relative;
+	top: -${selectSpacing(35)}px;
+	left: ${selectSpacing(42.5)}px;
+`
+
 const DarkCircle = styled(Image).attrs({
 	src: '/assets/Ellipse 3.svg',
 	alt: '',
@@ -62,11 +73,15 @@ const DarkVector = styled(Image).attrs({
 const Title = styled.h1`
 	z-index: 2;
 	${selectFont('h1')};
+	font-size: 48px;
 	white-space: pre-line;
 	word-break: break-all;
-
+	color: ${selectColor('black')};
 	width: 400px;
 	padding-left: ${selectSpacing(3)}px;
+
+	position: relative;
+	bottom: ${selectSpacing(3)}px;
 `
 const A = styled(Link)`
 	z-index: 2;
@@ -74,7 +89,9 @@ const A = styled(Link)`
 	${selectFont('bodyLg')};
 	color: ${selectColor('blue')};
 	position: relative;
+	bottom: ${selectSpacing(3)}px;
 	left: -${selectSpacing(5.25)}px;
+
 	width: 260px;
 `
 
@@ -87,6 +104,7 @@ export const FindYourOpenActor: React.FC = () => {
 				<BrightCircle />
 				<BrightVector />
 				<DarkVector />
+				<BlueCircle />
 			</Container>
 			<Title>{t('title')}</Title>
 			<A href={'#'}>{t('linkLabel')}</A>
