@@ -2,8 +2,14 @@ import { selectColor, selectFont, selectSpacing } from '@/utils/themeUtils'
 import styled from 'styled-components'
 import { useId } from '@mantine/hooks'
 import React from 'react'
+import { Color } from '@/config/theme'
 
-const Base = styled.div<{ width?: React.CSSProperties['width']; withIcon?: boolean }>`
+const Base = styled.div<{
+	color?: Color
+	backgroundColor?: Color
+	width?: React.CSSProperties['width']
+	withIcon?: boolean
+}>`
 	position: relative;
 
 	input {
@@ -13,22 +19,23 @@ const Base = styled.div<{ width?: React.CSSProperties['width']; withIcon?: boole
 		padding: ${selectSpacing(1.5)}px;
 		padding-right: ${({ withIcon }) => (withIcon ? `${selectSpacing(5)}px` : undefined)};
 		outline: none;
-		border: 1px solid ${selectColor('white')};
+		border: 1px solid ${({ color = 'black' }) => selectColor(color)} !important;
 
 		border-radius: ${selectSpacing(1)}px;
-		background-color: ${selectColor('blue')};
-		color: ${selectColor('white')};
+		background-color: ${({ backgroundColor = 'white' }) => selectColor(backgroundColor)} !important;
+		color: ${({ color = 'black' }) => selectColor(color)} !important;
 
 		:-webkit-autofill,
 		:-webkit-autofill:hover,
 		:-webkit-autofill:focus,
 		:-webkit-autofill:active {
-			-webkit-box-shadow: 0 0 0 30px ${selectColor('blue')} inset !important;
-			-webkit-text-fill-color: ${selectColor('white')};
+			-webkit-box-shadow: 0 0 0 30px
+				${({ backgroundColor = 'white' }) => selectColor(backgroundColor)} inset !important;
+			-webkit-text-fill-color: ${({ color = 'black' }) => selectColor(color)};
 		}
 		::placeholder {
-			color: #ffffff !important;
-			outline-color: ${selectColor('white')} !important;
+			color: ${({ color = 'black' }) => selectColor(color)} !important;
+			outline-color: ${({ color = 'black' }) => selectColor(color)} !important;
 		}
 	}
 
@@ -37,10 +44,10 @@ const Base = styled.div<{ width?: React.CSSProperties['width']; withIcon?: boole
 		left: 10px;
 		transform: translateY(-50%);
 
-		background: ${selectColor('blue')};
-		padding: ${selectSpacing(1)}px;
+		background: ${({ backgroundColor = 'white' }) => selectColor(backgroundColor)};
+		padding: 0 ${selectSpacing(1)}px;
 		${selectFont('bodyMd')};
-		color: ${selectColor('white')};
+		color: ${({ color = 'black' }) => selectColor(color)};
 	}
 `
 const Icon = styled.span`
@@ -50,24 +57,33 @@ const Icon = styled.span`
 	right: ${selectSpacing(1.5)}px;
 	transform: translateY(50%);
 `
-
 export type InputProps = {
 	label?: string
 	icon?: React.ReactNode
+	color?: Color
+	backgroundColor?: Color
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-export const BaseInput: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
 	icon,
 	label,
 	id,
 	className,
 	style,
+	color,
+	backgroundColor,
 	...inputProps
 }) => {
 	const uuid = useId(id)
 
 	return (
-		<Base className={className} style={style} withIcon={Boolean(icon)}>
+		<Base
+			className={className}
+			style={style}
+			withIcon={Boolean(icon)}
+			color={color}
+			backgroundColor={backgroundColor}
+		>
 			<label htmlFor={uuid}>{label}</label>
 			<input type={inputProps.type ?? 'text'} id={uuid} {...inputProps} />
 			{icon ? (
@@ -82,3 +98,5 @@ export const BaseInput: React.FC<InputProps> = ({
 		</Base>
 	)
 }
+
+export default Input

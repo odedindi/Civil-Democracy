@@ -18,14 +18,12 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
   body {
-    
     -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
     ${theme.fonts.body}
     line-height: 1.2;
     font-family: 'Work Sans';
-
     font-style: normal;
     letter-spacing: 0;
   }
@@ -37,7 +35,7 @@ const GlobalStyles = createGlobalStyle`
   button,
   textarea,
   select {
-    font: inherit;
+    font: inherit !important;;
   }
   button, input[type="submit"], input[type="reset"] {
 	background: none;

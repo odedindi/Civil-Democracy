@@ -1,4 +1,4 @@
-import Login from '@/features/LoginPage'
+import Login from '@/features/loginSignup/LoginPage'
 import { makeStaticProps } from '@/utils/makeStaticProps'
 
 const LoginPage: React.FC = () => <Login />

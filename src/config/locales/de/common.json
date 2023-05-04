@@ -8,9 +8,11 @@
 			"linkLabel": "Mehr über Zivildemokratie erfahren"
 		},
 		"createAccount": "Create an account",
+		"help": "Hilfe",
 		"login": "Anmelden",
 		"loginNow": "Jetzt Anmelden",
 		"welcomeBack": "Willkommen zurück!",
+		"loginWithCredentials": "melden Sie sich mit Ihren Zugangsdaten an",
 		"forgotPassword": "Passwort vergessen?",
 		"dontHaveAccount": "Sie haben kein Konto?",
 		"footer": {
