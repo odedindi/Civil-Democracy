@@ -7,6 +7,7 @@ const nextConfig = {
 		styledComponents: true,
 	},
 	i18n,
+	rewrites: () => [{ source: '/__health', destination: '/api/__health' }],
 }
 
 module.exports = nextConfig
