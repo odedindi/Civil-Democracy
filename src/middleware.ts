@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+import nextI18nextConfig from '../next-i18next.config'
+
 const PUBLIC_FILE = /\.(.*)$/
 
 export async function middleware(req: NextRequest) {
@@ -12,7 +14,7 @@ export async function middleware(req: NextRequest) {
 	}
 
 	if (req.nextUrl.locale === 'default') {
-		const locale = req.cookies.get('NEXT_LOCALE')?.value || 'en'
+		const locale = req.cookies.get('NEXT_LOCALE')?.value || nextI18nextConfig.i18n.defaultLocale
 
 		return NextResponse.redirect(
 			new URL(`/${locale}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url),
