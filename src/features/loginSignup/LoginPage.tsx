@@ -1,26 +1,36 @@
 import styled from 'styled-components'
 import LargeScreenLayout from './components/LargeScreenLayout'
 import LoginNavi from './components/LoginNavi'
-import { selectMediaQuery, selectColor } from '@/utils/themeUtils'
+import { selectMinMediaQuery, selectColor, Device } from '@/utils/themeUtils'
 
 import SmallScreenLayout from './components/SmallScreenLayout'
 
-const Base = styled.div`
-	width: 100vw;
-	height: 100vh;
+const defaultBreakpoint: Device = 'laptop'
+const Base = styled.div<{ breakpoint: Device }>`
+	display: flex;
+	flex-direction: column;
 
 	background-color: ${selectColor('white')};
-	${selectMediaQuery('laptop')} {
+	min-height: 100vh;
+	${({ breakpoint }) => selectMinMediaQuery(breakpoint)} {
 		background-color: ${selectColor('bgWhite')};
 	}
 `
+const Inner = styled.div`
+	width: 100vw;
+	margin: auto;
+`
 
-const Login: React.FC = () => (
-	<Base>
+const ResponsiveLoginPage: React.FC<{ breakpoint?: Device }> = ({
+	breakpoint = defaultBreakpoint,
+}) => (
+	<Base breakpoint={breakpoint}>
 		<LoginNavi />
-		<LargeScreenLayout />
-		<SmallScreenLayout />
+		<Inner>
+			<LargeScreenLayout visiblefrom={breakpoint} />
+			<SmallScreenLayout hiddenfrom={breakpoint} />
+		</Inner>
 	</Base>
 )
 
-export default Login
+export default ResponsiveLoginPage
