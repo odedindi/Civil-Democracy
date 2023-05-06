@@ -1,10 +1,18 @@
+import type { Session } from 'next-auth'
 import SEOProvider from './SEO'
 import StylesProvider from './styles'
 
-const Providers: React.FC<React.PropsWithChildren> = ({ children }) => (
+import AuthProvider from './Auth'
+
+const Providers: React.FC<React.PropsWithChildren<{ session: Session }>> = ({
+	children,
+	session,
+}) => (
 	<>
-		<SEOProvider />
-		<StylesProvider>{children}</StylesProvider>
+		<AuthProvider session={session}>
+			<SEOProvider />
+			<StylesProvider>{children}</StylesProvider>
+		</AuthProvider>
 	</>
 )
 

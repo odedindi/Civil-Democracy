@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { Image } from '@mantine/core'
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
+import { signIn, useSession } from 'next-auth/react'
 
 const Base = styled.nav`
 	width: 100%;
@@ -80,20 +81,27 @@ const A = styled(Link)`
 
 const LoginNavi: React.FC = () => {
 	const { t } = useTranslation('common', { keyPrefix: 'login' })
+	const session = useSession()
+
+	console.log(session)
 
 	return (
 		<Base>
 			<LargeLogo />
 			<SmallLogo />
-			<P>{t('createAccount')}</P>
-			<Button
-				onClick={() => {
-					console.log('login clicked')
-				}}
-			>
-				{t('login')}
-			</Button>
-			<A href={'#'}>{t('help')}</A>
+			{session.status !== 'authenticated' ? (
+				<>
+					<P>{t('createAccount')}</P>
+					<Button
+						onClick={() => {
+							signIn()
+						}}
+					>
+						{t('login')}
+					</Button>
+					<A href={'#'}>{t('help')}</A>
+				</>
+			) : null}
 		</Base>
 	)
 }
