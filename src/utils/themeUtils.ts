@@ -12,6 +12,7 @@ import get from 'lodash/get'
 import isFunction from 'lodash/isFunction'
 import isNumber from 'lodash/isNumber'
 import sizes from '../config/theme/sizes'
+import { css } from 'styled-components'
 
 export const select =
 	<T extends string>(
@@ -71,20 +72,33 @@ export const setOpacity = (hex: string, opacity: number) => {
 	return `#${color}`.toUpperCase()
 }
 
-export const devices = {
+// experimental
+export const iff =
+	(condition: any) =>
+	(first: any, ...vars: any[]) => {
+		const ifResult = css(first, ...vars)
+		const result = (props: any) => (condition(props) ? ifResult : undefined)
+		result.else =
+			(f: any, ...othervars: any[]) =>
+			(props: any) =>
+				condition(props) ? ifResult : css(f, ...othervars)
+		return result
+	}
+
+export type Device = 'phone' | 'tablet' | 'laptop' | 'desktop' | 'largeScreen'
+type MediaQueryValue = number | Device
+type MediaQuery =
+	| { 'min-width': MediaQueryValue }
+	| { 'max-width': MediaQueryValue }
+	| { 'min-height': MediaQueryValue }
+	| { 'max-height': MediaQueryValue }
+export const screenBreakpoints: { [device in Device]: number } = {
 	phone: 320,
 	tablet: 768,
 	laptop: 1080,
 	desktop: 1200,
 	largeScreen: 1920,
 }
-
-type MediaQueryValue = number | keyof typeof devices
-type MediaQuery =
-	| { 'min-width': MediaQueryValue }
-	| { 'max-width': MediaQueryValue }
-	| { 'min-height': MediaQueryValue }
-	| { 'max-height': MediaQueryValue }
 
 export const selectCustomMediaQuery = (mediaQuery: MediaQuery, ...rest: MediaQuery[]) => {
 	const [[queryKey, Queryvalue]] = Object.entries(mediaQuery)
@@ -95,24 +109,18 @@ export const selectCustomMediaQuery = (mediaQuery: MediaQuery, ...rest: MediaQue
 				const [[queryKey, Queryvalue]] = Object.entries(query)
 
 				return `${additionalQueries} and (${queryKey}:${
-					typeof Queryvalue === 'number' ? Queryvalue : devices[Queryvalue]
+					typeof Queryvalue === 'number' ? Queryvalue : screenBreakpoints[Queryvalue]
 				}px)`
 		  }, '')
 
 	return `@media only screen and (${queryKey}:${
-		typeof Queryvalue === 'number' ? Queryvalue : devices[Queryvalue]
+		typeof Queryvalue === 'number' ? Queryvalue : screenBreakpoints[Queryvalue]
 	}px)${additionalQueries}
-    `
+			`
 }
 
-const mediaQuery = {
-	phone: selectCustomMediaQuery({ 'min-width': devices.phone }),
-	tablet: selectCustomMediaQuery({ 'min-width': devices.tablet }),
-	laptop: selectCustomMediaQuery({ 'min-width': devices.laptop }),
-	desktop: selectCustomMediaQuery({ 'min-width': devices.desktop }),
-	largeScreen: selectCustomMediaQuery({ 'min-width': devices.largeScreen }),
-}
+export const selectMinMediaQuery = (device: Device) =>
+	selectCustomMediaQuery({ 'min-width': device })
 
-export const selectMediaQuery = (screenType: keyof typeof mediaQuery) => mediaQuery[screenType]
-
-export const TICKER_PAGE_MIN_HEIGHT = devices.tablet
+export const selectMaxMediaQuery = (device: Device) =>
+	selectCustomMediaQuery({ 'max-width': device })

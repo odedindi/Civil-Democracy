@@ -7,7 +7,7 @@ module.exports = {
 		defaultLocale: 'en',
 		locales: ['en', 'de', 'he', 'fa-IR'],
 	},
-	localePath: path.join(cwd(), 'src', 'config', 'locales'),
+	localePath: 'src/config/locales',
 	ns: ['common'],
 	rtlLocales: ['he', 'fa-IR'],
 }

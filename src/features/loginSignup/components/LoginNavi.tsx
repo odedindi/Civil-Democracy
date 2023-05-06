@@ -1,22 +1,9 @@
-import { selectColor, selectFont, selectMediaQuery, selectSpacing } from '@/utils/themeUtils'
+import { selectColor, selectFont, selectMinMediaQuery, selectSpacing } from '@/utils/themeUtils'
 import styled, { css } from 'styled-components'
 
 import { Image } from '@mantine/core'
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
-
-const ShowOnLargeScreen = css`
-	display: none;
-	${selectMediaQuery('laptop')} {
-		display: block;
-	}
-`
-const ShowOnSmallScreen = css`
-	display: block;
-	${selectMediaQuery('laptop')} {
-		display: none;
-	}
-`
 
 const Base = styled.nav`
 	width: 100%;
@@ -26,13 +13,18 @@ const Base = styled.nav`
 	justify-content: space-between;
 	gap: ${selectSpacing(2.5)}px;
 	padding: 0 ${selectSpacing(2.5)}px;
+
+	background-color: ${selectColor('white')};
+	${selectMinMediaQuery('laptop')} {
+		background-color: ${selectColor('bgWhite')};
+	}
 `
 
 const P = styled.p`
 	${selectFont('body')}
 
 	display: none;
-	${selectMediaQuery('laptop')} {
+	${selectMinMediaQuery('laptop')} {
 		display: block;
 	}
 `
@@ -44,7 +36,7 @@ const LargeLogo = styled(Image).attrs({
 	flex: 1;
 
 	display: none;
-	${selectMediaQuery('laptop')} {
+	${selectMinMediaQuery('laptop')} {
 		display: block;
 	}
 `
@@ -58,7 +50,7 @@ const Button = styled.button`
 	border-radius: ${selectSpacing(1)}px;
 
 	display: none;
-	${selectMediaQuery('laptop')} {
+	${selectMinMediaQuery('laptop')} {
 		display: block;
 	}
 `
@@ -71,7 +63,7 @@ const SmallLogo = styled(Image).attrs({
 	flex: 1;
 
 	display: block;
-	${selectMediaQuery('laptop')} {
+	${selectMinMediaQuery('laptop')} {
 		display: none;
 	}
 `
@@ -81,7 +73,7 @@ const A = styled(Link)`
 	color: ${selectColor('black')};
 
 	display: block;
-	${selectMediaQuery('laptop')} {
+	${selectMinMediaQuery('laptop')} {
 		display: none;
 	}
 `

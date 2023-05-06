@@ -4,13 +4,14 @@
 
 	"login": {
 		"findYourOpenActor": {
-			"title": "Finden Sie Ihren offenen\nSchauspieler",
+			"title": "Finden Sie Ihren\nopen actor",
 			"linkLabel": "Mehr über Zivildemokratie erfahren"
 		},
 		"createAccount": "Create an account",
 		"help": "Hilfe",
 		"login": "Anmelden",
 		"loginNow": "Jetzt Anmelden",
+		"or": "oder",
 		"welcomeBack": "Willkommen zurück!",
 		"loginWithCredentials": "melden Sie sich mit Ihren Zugangsdaten an",
 		"forgotPassword": "Passwort vergessen?",
