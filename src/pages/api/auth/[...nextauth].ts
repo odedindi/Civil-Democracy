@@ -7,6 +7,7 @@ const {
 	GOOGLE_CLIENT_SECRET = '',
 	GITHUB_ID = '',
 	GITHUB_SECRET = '',
+	NEXTAUTH_SECRET,
 } = process.env
 
 export const authOptions = {
@@ -22,6 +23,6 @@ export const authOptions = {
 		}),
 		// ...add more providers here
 	],
-	secret: process.env.NEXTAUTH_SECRET,
+	secret: NEXTAUTH_SECRET,
 }
 export default NextAuth(authOptions)
