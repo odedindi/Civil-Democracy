@@ -2,6 +2,11 @@
 	"hello": "Hello World",
 	"lang": "English",
 
+	"errorPage": {
+		"title": "Etwas stimmt nicht...",
+		"subTitle": "Die Seite, die Sie zu öffnen versuchen, existiert nicht. Möglicherweise haben Sie sich bei der Adresse vertippt oder die Seite\nwurde auf eine andere URL verschoben. Wenn Sie der Meinung sind, dass dies ein Fehler ist, wenden Sie sich an den Support.",
+		"buttonLabel": "Zur Startseite zurückkehren"
+	},
 	"login": {
 		"findYourOpenActor": {
 			"title": "Find Your Open\nActor",
