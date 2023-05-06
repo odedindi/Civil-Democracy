@@ -1,5 +1,5 @@
 import { makeStaticProps } from '@/utils/makeStaticProps'
-import { selectColor, selectFont, selectMediaQuery, selectSpacing } from '@/utils/themeUtils'
+import { selectColor, selectFont, selectMinMediaQuery, selectSpacing } from '@/utils/themeUtils'
 import { Image } from '@mantine/core'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
@@ -15,7 +15,7 @@ const Base = styled.div`
 	grid-auto-flow: column;
 	grid-template-columns: 1fr;
 	grid-template-rows: 0.25fr 1fr;
-	${selectMediaQuery('tablet')} {
+	${selectMinMediaQuery('tablet')} {
 		height: 100vh;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
@@ -34,12 +34,12 @@ const BackgroundImage = styled(Image).attrs({
 			: hideon === 'large'
 			? css`
 					display: none;
-					${selectMediaQuery('tablet')} {
+					${selectMinMediaQuery('tablet')} {
 						display: unset;
 					}
 			  `
 			: css`
-					${selectMediaQuery('tablet')} {
+					${selectMinMediaQuery('tablet')} {
 						display: none;
 					}
 			  `}
@@ -56,7 +56,7 @@ const Col = styled.div`
 const Title = styled.h1`
 	text-align: center;
 	${selectFont('h2')};
-	${selectMediaQuery('tablet')} {
+	${selectMinMediaQuery('tablet')} {
 		${selectFont('h1')};
 	}
 `

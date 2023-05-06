@@ -1,6 +1,7 @@
 import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
-import NextAuth from 'next-auth'
+import NextAuth, { Session, User } from 'next-auth'
+import { JWT } from 'next-auth/jwt'
 
 const {
 	GOOGLE_CLIENT_ID = '',
@@ -11,7 +12,6 @@ const {
 } = process.env
 
 export const authOptions = {
-	// Configure one or more authentication providers
 	providers: [
 		GoogleProvider({
 			clientId: GOOGLE_CLIENT_ID,
@@ -24,5 +24,23 @@ export const authOptions = {
 		// ...add more providers here
 	],
 	secret: NEXTAUTH_SECRET,
+	callbacks: {
+		jwt: async ({ token, user }: { token: JWT; user: User }) => {
+			if (user) {
+				token.id = user.id
+				token.role = user.role
+				token.subscribed = user.subscribed
+			}
+			return token
+		},
+		session: ({ session, token }: { session: Session; token: JWT }) => {
+			if (token && session.user) {
+				session.user.role = token.role
+				session.user.subscribed = token.subscribed
+				session.user.id = token.id
+			}
+			return session
+		},
+	},
 }
 export default NextAuth(authOptions)
