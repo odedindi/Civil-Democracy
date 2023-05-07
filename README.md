@@ -1,38 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Civil Democracy
 
-## Getting Started
+[Dev Environment](https://civil-democracy.vercel.app/)
 
-First, run the development server:
+## App Features
+- Civil democracy platform _to unite global civil society_ [introduction and technical pdf by Dr. Scholz](#)
+- **postgres DB** (vercel free tier)
+  - login / signup
+  - manage account
+  - assign Open Actors
+  - raise votes
+  - vote
+  - chat
+- **i18n** (ltr & rtl support) 
+  - English (en)
+  - German (de)
+  - Hebrew (he)
+  - Farsi (fa-IR) (currently utilizing google translate)
+- graphs queries showing my cv.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Tech/framework used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This is a [nextjs](https://nextjs.org/) project with
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- [turbo](https://github.com/vercel/turbo)
+- [apollo server](https://www.apollographql.com/)
+- [Prisma ORM](https://www.prisma.io/)
+- [Pothos GraphQL](https://pothos-graphql.dev/)
+- [Next-Auth](https://next-auth.js.org/)
+- [next-i18next](https://github.com/i18next/next-i18next
+- for styling
+  - [styled-components](https://github.com/styled-components/styled-components)
+  - [Mantine](https://mantine.dev/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### getting started and important scripts
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- run `turbo dev` to run it locally on [localhost:3000](http://localhost:3000)
+- run `turbo check:types` to check types
+- run `turbo lint` to check linting
+- run `generate:types` to generate new apollo types
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contributing
 
-## Learn More
+- If you'd like to contribute, please do fork the repository and use a feature branch.
+- Pull requests are most welcome.
 
-To learn more about Next.js, take a look at the following resources:
+## Links
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Project homepage: https://github.com/odedindi/Civil-Democracy
+- Repository: git@github.com:odedindi/Civil-Democracy.git
+- Issue tracker: https://github.com/odedindi/Civil-Democracy/issues
+  #### I value the care and effort to improve the security and privacy of this project!
+- In case of sensitive bugs like security vulnerabilities, please contact
+  odedindi@gmail.com directly instead of using issue tracker.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Licensing
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The code in this project is licensed under MIT [license](https://github.com/odedindi/Civil-Democracy/blob/main/LICENSE).
