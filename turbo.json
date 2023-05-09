@@ -10,7 +10,8 @@
 				"GOOGLE_CLIENT_SECRET",
 				"GITHUB_ID",
 				"GITHUB_SECRET",
-				"NEXTAUTH_SECRET"
+				"NEXTAUTH_SECRET",
+				"POSTGRES_URL_NON_POOLING"
 			],
 			"outputs": ["dist/**", ".next/**", "!.next/cache/**"]
 		},
@@ -19,6 +20,21 @@
 			"cache": false,
 			"persistent": true,
 			"outputs": ["dist/**", "build/**"]
+		},
+		"prisma:generate": {
+			"cache": false
+		},
+		"prisma:migrate": {
+			"cache": false
+		},
+		"db:generate": {
+			"cache": false
+		},
+		"db:push": {
+			"cache": false
+		},
+		"db:seed": {
+			"cache": false
 		},
 		"deploy": {
 			"dependsOn": ["build", "lint"]

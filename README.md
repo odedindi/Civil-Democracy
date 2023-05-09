@@ -7,7 +7,7 @@
   [Dev Environment](https://civil-democracy.vercel.app/)
 
 ## App Features
-
+- Civil democracy platform _to unite global civil society_ [introduction and technical pdf by Dr. Scholz](#)
 - **postgres DB** (vercel free tier)
   - login / signup
   - manage account
@@ -15,7 +15,7 @@
   - raise votes
   - vote
   - chat
-- **i18n** (ltr & rtl support)
+- **i18n** (ltr & rtl support) 
   - English (en)
   - German (de)
   - Hebrew (he)

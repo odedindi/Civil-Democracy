@@ -3,6 +3,16 @@ import { makeStaticProps } from '@/utils/makeStaticProps'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
+import { gql } from 'apollo-server-core'
+
+const QueryMe = gql`
+	query Me {
+		me {
+			id
+			email
+		}
+	}
+`
 
 export default function Home() {
 	const router = useRouter()
