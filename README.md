@@ -1,9 +1,13 @@
 # Civil Democracy
 
-[Dev Environment](https://civil-democracy.vercel.app/)
+## context
+
+- Civil democracy platform _to unite global civil society_ [introduction pdf by Dr. Scholz](https://github.com/odedindi/Civil-Democracy/blob/c38ffaf492528b5c809bb169a6f38ad962ae9b73/documentation/introduction.pdf)
+- [second step](https://github.com/odedindi/Civil-Democracy/blob/c38ffaf492528b5c809bb169a6f38ad962ae9b73/documentation/second-step.pdf)
+  [Dev Environment](https://civil-democracy.vercel.app/)
 
 ## App Features
-- Civil democracy platform _to unite global civil society_ [introduction and technical pdf by Dr. Scholz](#)
+
 - **postgres DB** (vercel free tier)
   - login / signup
   - manage account
@@ -11,7 +15,7 @@
   - raise votes
   - vote
   - chat
-- **i18n** (ltr & rtl support) 
+- **i18n** (ltr & rtl support)
   - English (en)
   - German (de)
   - Hebrew (he)
@@ -46,6 +50,7 @@ This is a [nextjs](https://nextjs.org/) project with
 
 ## Links
 
+- word press prototype: https://civil-democracy.ropstam.dev/
 - Project homepage: https://github.com/odedindi/Civil-Democracy
 - Repository: git@github.com:odedindi/Civil-Democracy.git
 - Issue tracker: https://github.com/odedindi/Civil-Democracy/issues
