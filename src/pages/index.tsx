@@ -9,7 +9,7 @@ export default function Home() {
 	const { t } = useTranslation()
 
 	useEffect(() => {
-		router.push('/login')
+		router.push('/profile/login')
 	}, [router])
 
 	return (
@@ -19,7 +19,7 @@ export default function Home() {
 					<LanguageSwitchLink locale="de" href={'/'} />
 					<br />
 					<LanguageSwitchLink locale="en" href={'/'} />
-					<p>{t('lang')}</p>
+					<p>{t(`lang.${router.locale}` as any)}</p>
 				</div>
 			</main>
 		</>

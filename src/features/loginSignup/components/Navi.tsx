@@ -1,10 +1,11 @@
 import { selectColor, selectFont, selectMinMediaQuery, selectSpacing } from '@/utils/themeUtils'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { Image } from '@mantine/core'
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 const Base = styled.nav`
 	width: 100%;
@@ -70,7 +71,7 @@ const SmallLogo = styled(Image).attrs({
 `
 
 const A = styled(Link)`
-	${selectFont('camptonSm')};
+	${selectFont('camptonMd')};
 	color: ${selectColor('black')};
 
 	display: block;
@@ -79,31 +80,33 @@ const A = styled(Link)`
 	}
 `
 
-const LoginNavi: React.FC = () => {
-	const { t } = useTranslation('common', { keyPrefix: 'login' })
-	const session = useSession()
+type NaviProps = {
+	type: 'login' | 'signup'
+}
 
+const Navi: React.FC<NaviProps> = ({ type }) => {
+	const { t } = useTranslation('common', { keyPrefix: `profile.${type}Form` })
+	const router = useRouter()
+	const session = useSession()
 	console.log(session)
 
 	return (
 		<Base>
 			<LargeLogo />
 			<SmallLogo />
-			{session.status !== 'authenticated' ? (
-				<>
-					<P>{t('createAccount')}</P>
-					<Button
-						onClick={() => {
-							signIn()
-						}}
-					>
-						{t('login')}
-					</Button>
-					<A href={'#'}>{t('help')}</A>
-				</>
-			) : null}
+			<P>{t('helperText')}</P>
+			<Button
+				onClick={() => {
+					// if (type === 'login') signIn()
+					if (type === 'signup') router.push('/profile/login')
+					if (type === 'login') router.push('/profile/signup')
+				}}
+			>
+				{t('naviButtonLabel')}
+			</Button>
+			<A href={'#'}>{t('help')}</A>
 		</Base>
 	)
 }
 
-export default LoginNavi
+export default Navi

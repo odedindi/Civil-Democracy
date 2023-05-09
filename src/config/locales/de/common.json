@@ -1,27 +1,40 @@
 {
 	"hello": "Hallo Welt",
-	"lang": "Deutsch",
+	"lang": { "de": "Deutsch" },
 
-	"login": {
-		"findYourOpenActor": {
-			"title": "Finden Sie Ihren\nopen actor",
-			"linkLabel": "Mehr über Zivildemokratie erfahren"
-		},
-		"createAccount": "Create an account",
-		"help": "Hilfe",
-		"login": "Anmelden",
-		"loginNow": "Jetzt Anmelden",
-		"or": "oder",
-		"welcomeBack": "Willkommen zurück!",
-		"loginWithCredentials": "melden Sie sich mit Ihren Zugangsdaten an",
-		"forgotPassword": "Passwort vergessen?",
-		"dontHaveAccount": "Sie haben kein Konto?",
-		"footer": {
-			"instantUpdates": "Sofortige Updates um"
-		},
+	"errorPage": {
+		"title": "Something's wrong...",
+		"subTitle": "The page you are trying to open does not exist. You may have mistyped the address or the page\nmoved to a different URL. If you think this is an error, please contact contact support.",
+		"buttonLabel": "Return to home page"
+	},
+	"profile": {
 		"loginForm": {
+			"hero": {
+				"title": "Finden Sie Ihren\nopen actor",
+				"linkLabel": "Mehr über Zivildemokratie erfahren"
+			},
+			"helperText": "Create an account",
+			"help": "Hilfe",
+			"loginNow": "Jetzt Anmelden",
+			"or": "oder",
+			"loginWithCredentials": "melden Sie sich mit Ihren Zugangsdaten an",
+			"forgotPassword": "Passwort vergessen?",
+			"dontHaveAccount": "Sie haben kein Konto?",
+			"title": "Anmelden",
+			"subtitle": "Willkommen zurück!",
+			"buttonLabel": "Anmelden",
 			"username": "Benutzername",
-			"password": "Passwort"
+			"password": "Passwort",
+
+			"signupForm": {
+				"helperText": "Melden Sie sich bei Ihrem Konto an",
+				"signin": "Anmelden",
+				"buttonLabel": "Anmelden",
+				"help": "Hilfe"
+			},
+			"footer": {
+				"instantUpdates": "Sofortige Updates um"
+			}
 		}
 	}
 }

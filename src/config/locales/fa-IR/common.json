@@ -1,31 +1,39 @@
 {
 	"hello": "سلام دنیا",
-	"lang": "فارسی",
+	"lang": { "fa-IR": "فارسی" },
 
 	"errorPage": {
 		"title": "چیزی درست نیست...",
 		"subTitle": "صفحه‌ای که می‌خواهید باز کنید وجود ندارد. ممکن است آدرس را اشتباه تایپ کرده باشید، یا صفحه\nبه نشانی اینترنتی دیگری منتقل شده باشد. اگر فکر می‌کنید این یک خطا است، با پشتیبانی تماس بگیرید.",
 		"buttonLabel": "برگشت به صفحه اصلی"
 	},
-	"login": {
-		"findYourOpenActor": {
-			"title": "نماینده خود را /nپیدا کنید",
-			"linkLabel": "درباره دموکراسی مدنی بیاموزید"
-		},
-		"createAccount": "ایجاد یک حساب کاربری",
-		"help": "کمک",
-		"login": "ورود به سیستم",
-		"loginNow": "اکنون وارد شوید",
-		"loginWithCredentials": "با اعتبار خود وارد شوید",
-		"welcomeBack": "خوش آمدید!",
-		"forgotPassword": "رمز عبور را فراموش کرده اید؟",
-		"dontHaveAccount": "حساب ندارید؟",
-		"footer": {
-			"instantUpdates": "به روز رسانی های فوری در"
-		},
+	"profile": {
 		"loginForm": {
+			"findYourOpenActor": {
+				"title": "نماینده خود را /nپیدا کنید",
+				"linkLabel": "درباره دموکراسی مدنی بیاموزید"
+			},
+			"helperText": "ایجاد یک حساب کاربری",
+			"help": "کمک",
+			"loginNow": "اکنون وارد شوید",
+			"or": "یا",
+			"loginWithCredentials": "با اعتبار خود وارد شوید",
+			"forgotPassword": "رمز عبور را فراموش کرده اید؟",
+			"dontHaveAccount": "حساب ندارید؟",
+			"title": "ورود به سیستم",
+			"subtitle": "خوش آمدید!",
+			"buttonLabel": "ورود به سیستم",
 			"username": "نام کاربری",
 			"password": "رمز عبور"
+		},
+		"signupForm": {
+			"helperText": "ورود به حساب کاربری خود",
+			"signin": "ورود",
+			"buttonLabel": "ورود به سیستم",
+			"help": "کمک"
+		},
+		"footer": {
+			"instantUpdates": "به روز رسانی های فوری در"
 		}
 	}
 }

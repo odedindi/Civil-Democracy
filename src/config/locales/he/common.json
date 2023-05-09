@@ -1,32 +1,39 @@
 {
 	"hello": "שלום עולם",
-	"lang": "עברית",
+	"lang": { "he": "עברית" },
 
 	"errorPage": {
 		"title": "משהו לא תקין...",
 		"subTitle": "הדף שאת/ה מנסה לפתוח אינו קיים. ייתכן שטעית בהקלדת הכתובת, או שהדף\nהועבר לכתובת אחרת. אם אתה חושב שזוהי שגיאה פנה לתמיכה.",
 		"buttonLabel": "חזור לדף הבית"
 	},
-	"login": {
-		"findYourOpenActor": {
-			"title": "מצא/י את הנציג\nהחופשי",
-			"linkLabel": "למד עוד על דמוקרטיה אזרחית"
-		},
-		"createAccount": "צור חשבון",
-		"help": "עזרה",
-		"login": "התחבר/י",
-		"loginNow": "התחבר/י כעת",
-		"or": "או",
-		"loginWithCredentials": "התחבר/י באמצעות פרטיך",
-		"welcomeBack": "ברוכים השבים",
-		"forgotPassword": "שכחת את הסיסמה?",
-		"dontHaveAccount": "אין לך עדיין חשבון?",
-		"footer": {
-			"instantUpdates": "לעדכונים מיידים"
-		},
+	"profile": {
 		"loginForm": {
+			"hero": {
+				"title": "מצא/י את הנציג\nהחופשי",
+				"linkLabel": "למד עוד על דמוקרטיה אזרחית"
+			},
+			"helperText": "צור חשבון",
+			"help": "עזרה",
+			"loginNow": "התחבר/י כעת",
+			"or": "או",
+			"loginWithCredentials": "התחבר/י באמצעות פרטיך",
+			"forgotPassword": "שכחת את הסיסמה?",
+			"dontHaveAccount": "אין לך עדיין חשבון?",
+			"title": "התחבר/י",
+			"subtitle": "ברוכים השבים!",
+			"buttonLabel": "התחבר/י",
 			"username": "שם משתמש",
 			"password": "סיסמא"
+		},
+		"signupForm": {
+			"helperText": "התחבר לחשבון שלך",
+			"signin": "כניסה",
+			"buttonLabel": "כניסה",
+			"help": "עזרה"
+		},
+		"footer": {
+			"instantUpdates": "לעדכונים מיידים"
 		}
 	}
 }

@@ -1,32 +1,65 @@
 {
 	"hello": "Hello World",
-	"lang": "English",
-
+	"lang": { "en": "English", "de": "Deutsch", "he": "עברית", "fa-IR": "فارسی" },
+	"countryCode": {
+		"en": "usa",
+		"de": "deu",
+		"he": "isr",
+		"fa-IR": "irn"
+	},
 	"errorPage": {
 		"title": "Etwas stimmt nicht...",
 		"subTitle": "Die Seite, die Sie zu öffnen versuchen, existiert nicht. Möglicherweise haben Sie sich bei der Adresse vertippt oder die Seite\nwurde auf eine andere URL verschoben. Wenn Sie der Meinung sind, dass dies ein Fehler ist, wenden Sie sich an den Support.",
 		"buttonLabel": "Zur Startseite zurückkehren"
 	},
-	"login": {
-		"findYourOpenActor": {
-			"title": "Find Your Open\nActor",
-			"linkLabel": "Learn about Civil Democracy"
-		},
-		"createAccount": "Create an account",
-		"help": "Help",
-		"login": "Login",
-		"loginNow": "Login Now",
-		"or": "or",
-		"loginWithCredentials": "login with your credentials",
-		"welcomeBack": "Welcome back!",
-		"forgotPassword": "Forgot password?",
-		"dontHaveAccount": "Don't have an account?",
-		"footer": {
-			"instantUpdates": "Instant Updates at"
-		},
+	"profile": {
 		"loginForm": {
+			"hero": {
+				"title": "Find Your Open\nActor",
+				"linkLabel": "Learn about Civil Democracy"
+			},
+			"helperText": "Create an account",
+			"naviButtonLabel": "Signup",
+			"help": "Help",
+			"loginNow": "Login Now",
+			"or": "or",
+			"loginWithCredentials": "login with your credentials",
+			"forgotPassword": "Forgot password?",
+			"dontHaveAccount": "Don't have an account?",
+			"title": "Login",
+			"subtitle": "Welcome back!",
+			"buttonLabel": "Login",
 			"username": "Username",
 			"password": "Password"
+		},
+		"signupForm": {
+			"hero": {
+				"title": "Create an account \n& Join us !"
+			},
+			"helperText": "Already have an account?",
+			"login": "Login",
+			"naviButtonLabel": "Login",
+			"buttonLabel": "Sign up",
+			"help": "Help",
+			"title": "Create your account",
+			"welcome": "Welcome !",
+			"subtitle": "Enter your information and create\nyour account now",
+			"firstName": "First Name",
+			"lastName": "Last Name",
+			"email": "Email",
+			"birthday": "Birthday",
+			"nationality": "Nationality",
+			"address": "Place of residence",
+			"uploadID": { "helperText": "Upload identity document", "buttonLabel": "Click to upload" },
+			"read": "Read",
+			"termsAndConditions": "Terms and conditions",
+			"andSignup": "and signup",
+			"makePublic": "Make Public",
+			"cliamIdentity": "If your are a person that has already been added and want to claim that identity, please write an email to",
+			"cliamIdentityEmailAddress": "individualoas@civil-democracy.org"
+		},
+		"footer": {
+			"instantUpdates": "Instant Updates at"
 		}
 	}
 }

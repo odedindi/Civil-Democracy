@@ -1,23 +1,32 @@
 import { Device, selectMinMediaQuery } from '@/utils/themeUtils'
 import styled from 'styled-components'
-import LargeScreenLayoutLoginForm from './LargeScreenLayoutLoginForm'
 
-import React from 'react'
-import LargeScreenLayoutHero from './LargeScreenLayoutHero'
+import React, { PropsWithChildren } from 'react'
 
-const Base = styled.div<{ visiblefrom: Device }>`
+const Base = styled.div<{
+	visiblefrom: Device
+	columnsLayout: React.CSSProperties['gridTemplateColumns']
+}>`
 	display: none;
 
 	${({ visiblefrom }) => selectMinMediaQuery(visiblefrom)} {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: ${({ columnsLayout = '1fr 1fr' }) => columnsLayout};
 	}
 `
 
-const LargeScreenLayout: React.FC<{ visiblefrom: Device }> = ({ visiblefrom }) => (
-	<Base visiblefrom={visiblefrom}>
-		<LargeScreenLayoutHero />
-		<LargeScreenLayoutLoginForm />
+type LargeScreenLayoutProps = {
+	visiblefrom: Device
+	columnsLayout?: React.CSSProperties['gridTemplateColumns']
+}
+
+const LargeScreenLayout: React.FC<PropsWithChildren<LargeScreenLayoutProps>> = ({
+	visiblefrom,
+	children,
+	columnsLayout,
+}) => (
+	<Base columnsLayout={columnsLayout} visiblefrom={visiblefrom}>
+		{children}
 	</Base>
 )
 

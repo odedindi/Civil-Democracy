@@ -1,13 +1,14 @@
-import { Image } from '@mantine/core'
-import Input from '@/ui/primitive/Input'
+import { Image, ActionIcon } from '@mantine/core'
+
 import { selectColor, selectFont, selectSpacing } from '@/utils/themeUtils'
 import styled from 'styled-components'
 import { useTranslation } from 'next-i18next'
 import InstantUpdatesLinks from './InstantUpdatesLinks'
-import ClickableIcon from '@/ui/primitive/ClickableIcon'
+
 import Link from 'next/link'
 import { useState } from 'react'
-import { useLogin } from '../hooks/useLogin'
+import { LoginForm } from '../hooks/useLogin'
+import InputField from '@/ui/primitive/InputField'
 
 const Base = styled.div`
 	margin: auto;
@@ -37,13 +38,13 @@ const IconContainer = styled.div`
 	grid-row: 1/3;
 `
 
-const H2 = styled.h2`
+const Title = styled.h2`
 	${selectFont('h2')};
 	position: relative;
 	top: ${selectSpacing(0.75)}px;
 `
 
-const P = styled.p`
+const SubTitle = styled.p`
 	${selectFont('camptonMd')};
 	position: relative;
 	bottom: ${selectSpacing(0.5)}px;
@@ -51,7 +52,7 @@ const P = styled.p`
 
 const BlueContainer = styled.div`
 	width: 498px;
-	height: 492px;
+	min-height: 492px;
 	background-color: ${selectColor('blue')};
 	border-radius: ${selectSpacing(3.125)}px;
 
@@ -90,9 +91,18 @@ const Row = styled.div`
 	padding-top: ${selectSpacing(5)}px;
 `
 
-const LargeScreenLayout: React.FC = () => {
-	const { t } = useTranslation('common', { keyPrefix: 'login' })
-	const { username, password, onUsernameChange, onPasswordChange, onSubmit } = useLogin()
+const StyledInputField = styled(InputField).attrs({
+	color: 'white',
+	bordercolor: 'white',
+	backgroundcolor: 'blue',
+	errorcolor: 'paleOrange',
+	required: true,
+})`
+	margin-bottom: ${selectSpacing(2.5)}px;
+`
+const LargeScreenLoginForm: React.FC<{ loginForm: LoginForm }> = ({ loginForm }) => {
+	const { t } = useTranslation('common', { keyPrefix: 'profile.loginForm' })
+	const { form, onSubmit } = loginForm
 
 	const [hideText, setHideText] = useState(true)
 	const toggleHideText = () => setHideText((prev) => !prev)
@@ -103,44 +113,41 @@ const LargeScreenLayout: React.FC = () => {
 					<IconContainer>
 						<Image src="/assets/icons/login.svg" alt="login-icon" width={48} height={48} />
 					</IconContainer>
-					<H2>{t('loginNow')}</H2>
-					<P>{t('welcomeBack')}</P>
+					<Title>{t('loginNow')}</Title>
+					<SubTitle>{t('subtitle')}</SubTitle>
 				</Header>
 				<form onSubmit={onSubmit}>
-					<Input
-						label={t('loginForm.username')}
-						icon={<Image src="/assets/icons/user_merun_light.svg" alt="user-icon" />}
-						style={{ marginBottom: `${selectSpacing(5.25)}px` }}
-						value={username}
-						onChange={({ target }) => onUsernameChange(target.value)}
-						color="white"
-						backgroundColor="blue"
+					<StyledInputField
+						label={t('username')}
+						icon={
+							<ActionIcon size={20} radius="md" disabled>
+								<Image src="/assets/icons/user_merun_light.svg" alt="user-icon" />
+							</ActionIcon>
+						}
+						{...form.getInputProps('username')}
 					/>
 
-					<Input
+					<StyledInputField
 						type={hideText ? 'password' : 'text'}
-						label={t('loginForm.password')}
-						style={{ marginBottom: `${selectSpacing(2.5)}px` }}
+						label={t('password')}
 						icon={
-							<ClickableIcon
-								src="/assets/icons/key_merun_light.svg"
-								alt="key-icon"
-								onClick={toggleHideText}
-							/>
+							<ActionIcon size={20} radius="md" onClick={toggleHideText}>
+								<Image src="/assets/icons/key_merun_light.svg" alt="key-icon" />
+							</ActionIcon>
 						}
-						value={password}
-						onChange={({ target }) => onPasswordChange(target.value)}
-						color="white"
-						backgroundColor="blue"
+						{...form.getInputProps('password')}
 					/>
 					<A href="#" passHref style={{ marginBottom: `${selectSpacing(5)}px` }}>
 						{t('forgotPassword')}
 					</A>
 					<Row>
-						<Button type="submit" disabled={!username.length || !password.length}>
+						<Button
+							type="submit"
+							disabled={!form.values.username.length || !form.values.password.length}
+						>
 							{t('loginNow')}
 						</Button>
-						<A href="#" passHref>
+						<A href="/profile/signup" passHref>
 							{t('dontHaveAccount')}
 						</A>
 					</Row>
@@ -151,4 +158,4 @@ const LargeScreenLayout: React.FC = () => {
 	)
 }
 
-export default LargeScreenLayout
+export default LargeScreenLoginForm

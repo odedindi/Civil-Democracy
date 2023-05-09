@@ -28,7 +28,7 @@ const P = styled.p`
 `
 
 const InstantUpdatesLinks: React.FC = () => {
-	const { t } = useTranslation('common', { keyPrefix: 'login.footer' })
+	const { t } = useTranslation('common', { keyPrefix: 'profile.footer' })
 
 	return (
 		<Footer>
