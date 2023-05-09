@@ -1,5 +1,5 @@
 import type { Session } from 'next-auth'
-import SEOProvider from './SEO'
+import DefaultSEO from './SEO'
 import StylesProvider from './styles'
 
 import AuthProvider from './Auth'
@@ -12,7 +12,7 @@ const Providers: React.FC<React.PropsWithChildren<{ session: Session }>> = ({
 	<>
 		<AuthProvider session={session}>
 			<QueryProvider>
-				<SEOProvider />
+				<DefaultSEO />
 				<StylesProvider>{children}</StylesProvider>
 			</QueryProvider>
 		</AuthProvider>

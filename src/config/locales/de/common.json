@@ -2,10 +2,16 @@
 	"hello": "Hallo Welt",
 	"lang": { "de": "Deutsch" },
 
+	"seo": {
+		"default": {
+			"title": "Zivildemokratie",
+			"description": "Wir brauchen Institutionen, die es uns ermöglichen, uns auf die Lösung von Problemen zu konzentrieren, anstatt von ihnen abzulenken."
+		}
+	},
 	"errorPage": {
-		"title": "Something's wrong...",
-		"subTitle": "The page you are trying to open does not exist. You may have mistyped the address or the page\nmoved to a different URL. If you think this is an error, please contact contact support.",
-		"buttonLabel": "Return to home page"
+		"title": "Etwas stimmt nicht...",
+		"subTitle": "Die Seite, die Sie zu öffnen versuchen, existiert nicht. Möglicherweise haben Sie sich bei der Adresse vertippt oder die Seite\nwurde auf eine andere URL verschoben. Wenn Sie der Meinung sind, dass dies ein Fehler ist, wenden Sie sich an den Support.",
+		"buttonLabel": "Zur Startseite zurückkehren"
 	},
 	"inputFields": {
 		"name": "Name",
@@ -17,6 +23,12 @@
 		"uploadID": {
 			"helperText": "Ausweisdokument hochladen",
 			"buttonLabel": "Zum Hochladen klicken"
+		}
+	},
+	"login": {
+		"findYourOpenActor": {
+			"title": "Finden Sie Ihren\nopen actor",
+			"linkLabel": "Mehr über Zivildemokratie erfahren"
 		},
 		"termsAndCondtions": {
 			"read": "Lesen",

@@ -7,10 +7,16 @@
 		"he": "isr",
 		"fa-IR": "irn"
 	},
+	"seo": {
+		"default": {
+			"title": "Civil Democracy",
+			"description": "We need institutions that allow us to focus on solving problems, instead of distracting from them."
+		}
+	},
 	"errorPage": {
-		"title": "Etwas stimmt nicht...",
-		"subTitle": "Die Seite, die Sie zu öffnen versuchen, existiert nicht. Möglicherweise haben Sie sich bei der Adresse vertippt oder die Seite\nwurde auf eine andere URL verschoben. Wenn Sie der Meinung sind, dass dies ein Fehler ist, wenden Sie sich an den Support.",
-		"buttonLabel": "Zur Startseite zurückkehren"
+		"title": "Something's wrong...",
+		"subTitle": "The page you are trying to open does not exist. You may have mistyped the address or the page\nmoved to a different URL. If you think this is an error, please contact contact support.",
+		"buttonLabel": "Return to home page"
 	},
 	"inputFields": {
 		"name": "Name",

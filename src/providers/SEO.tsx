@@ -1,14 +1,14 @@
 import { DefaultSeo, DefaultSeoProps } from 'next-seo'
+import { useTranslation } from 'next-i18next'
+import { omit } from 'lodash'
 
-const SEOconfig: DefaultSeoProps = {
-	title: 'default page title',
-	description: 'default page description',
+const defaultConfig: DefaultSeoProps = {
 	additionalLinkTags: [{ rel: 'icon', href: '/assets/logo-small.svg' }],
 	openGraph: {
 		type: 'website',
-		locale: 'en_IE',
-		url: 'https://www.url.ie/',
-		siteName: 'SiteName',
+		locale: 'en',
+		url: 'https://civil-democracy.vercel.app/',
+		siteName: 'Civil Democracy Platform',
 		description: 'open graph description',
 		images: [],
 	},
@@ -19,6 +19,22 @@ const SEOconfig: DefaultSeoProps = {
 	},
 }
 
-const SEOProvider: React.FC = () => <DefaultSeo {...SEOconfig} />
+const extendConfig = (config?: DefaultSeoProps) => ({
+	...defaultConfig,
+	...config,
+})
 
-export default SEOProvider
+const ProvideSEO: React.FC<{ config?: DefaultSeoProps }> = ({ config = {} }) => {
+	const { t } = useTranslation('common', { keyPrefix: 'seo.default' })
+	const title = config?.title ?? t('title')
+	const description = config?.description ?? t('description')
+	return (
+		<DefaultSeo
+			title={title}
+			description={description}
+			{...extendConfig(omit(config, ['title', 'description']))}
+		/>
+	)
+}
+
+export default ProvideSEO
