@@ -1,23 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server'
 
-import nextI18nextConfig from '../next-i18next.config'
+import { stackMiddlewares } from '@/middlewares/stackMiddlewares'
+import { withHeaders } from '@/middlewares/withHeaders'
+import { withLocale } from '@/middlewares/withLocale'
 
-const PUBLIC_FILE = /\.(.*)$/
+import { MiddlewareFactory } from './middlewares/types'
 
-export async function middleware(req: NextRequest) {
-	if (
-		req.nextUrl.pathname.startsWith('/_next') ||
-		req.nextUrl.pathname.includes('/api/') ||
-		PUBLIC_FILE.test(req.nextUrl.pathname)
-	) {
-		return
-	}
-
-	if (req.nextUrl.locale === 'default') {
-		const locale = req.cookies.get('NEXT_LOCALE')?.value || nextI18nextConfig.i18n.defaultLocale
-
-		return NextResponse.redirect(
-			new URL(`/${locale}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url),
-		)
-	}
-}
+const middlewares: MiddlewareFactory[] = [withHeaders, withLocale]
+export default stackMiddlewares(middlewares)
