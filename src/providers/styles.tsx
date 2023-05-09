@@ -1,4 +1,4 @@
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import theme, { Dir } from '@/config/theme'
 
 import { MantineProvider } from '@mantine/core'
@@ -37,7 +37,7 @@ const GlobalStyles = createGlobalStyle`
   button,
   textarea,
   select {
-    font: inherit !important;;
+    font: inherit !important;
   }
   button, input[type="submit"], input[type="reset"] {
 	background: none;
@@ -62,6 +62,11 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
+const RtlWrapper = styled.div`
+	> * {
+		direction: ${({ theme: { dir } }) => dir};
+	}
+`
 const StylesProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
 	const activeLocale = useRouter().locale
 	const isRtl = !!activeLocale && nextI18nextConfig.rtlLocales.includes(activeLocale)
@@ -69,8 +74,8 @@ const StylesProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
 	return (
 		<ThemeProvider theme={{ ...theme, dir }}>
 			<GlobalStyles />
-			<MantineProvider withNormalizeCSS inherit>
-				{children}
+			<MantineProvider withNormalizeCSS inherit theme={{ fontFamily: 'Work Sans, Campton' }}>
+				<RtlWrapper>{children}</RtlWrapper>
 			</MantineProvider>
 		</ThemeProvider>
 	)

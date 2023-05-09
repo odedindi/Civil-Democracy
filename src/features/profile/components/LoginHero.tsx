@@ -91,7 +91,7 @@ const BlueLittleCircle = styled.div`
 const Title = styled.h1`
 	z-index: 2;
 	${selectFont('h1')};
-	font-size: clamp(44px, 50vw, 48px);
+	font-size: clamp(44px, 4vw, 48px);
 	white-space: pre-line;
 	word-break: break-all;
 	color: ${selectColor('black')};
@@ -122,8 +122,8 @@ const A = styled(Link)`
 		`}
 `
 
-const LargeScreenLayoutHero: React.FC = () => {
-	const { t } = useTranslation('common', { keyPrefix: 'login.findYourOpenActor' })
+const LoginHero: React.FC = () => {
+	const { t } = useTranslation('common', { keyPrefix: 'profile.loginForm.hero' })
 	return (
 		<Base>
 			<Container>
@@ -136,4 +136,4 @@ const LargeScreenLayoutHero: React.FC = () => {
 	)
 }
 
-export default LargeScreenLayoutHero
+export default LoginHero

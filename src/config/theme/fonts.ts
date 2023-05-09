@@ -11,10 +11,10 @@ const fonts = {
 	`,
 	h3: css`
 		font-size: 24px;
-		font-weight: 600;
+		font-weight: 700;
 	`,
 	h4: css`
-		font-size: 18px;
+		font-size: 20px;
 		font-weight: 600;
 	`,
 	h5: css`
@@ -57,7 +57,12 @@ const fonts = {
 	`,
 	camptonSm: css`
 		font-family: 'Campton';
-		font-size: 14px;
+		font-size: 12px;
+		font-weight: 400;
+	`,
+	camptonXs: css`
+		font-family: 'Campton';
+		font-size: 10px;
 		font-weight: 400;
 	`,
 }

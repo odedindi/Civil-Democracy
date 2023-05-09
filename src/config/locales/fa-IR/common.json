@@ -1,31 +1,64 @@
 {
 	"hello": "سلام دنیا",
-	"lang": "فارسی",
+	"lang": { "fa-IR": "فارسی" },
 
 	"errorPage": {
 		"title": "چیزی درست نیست...",
 		"subTitle": "صفحه‌ای که می‌خواهید باز کنید وجود ندارد. ممکن است آدرس را اشتباه تایپ کرده باشید، یا صفحه\nبه نشانی اینترنتی دیگری منتقل شده باشد. اگر فکر می‌کنید این یک خطا است، با پشتیبانی تماس بگیرید.",
 		"buttonLabel": "برگشت به صفحه اصلی"
 	},
-	"login": {
-		"findYourOpenActor": {
-			"title": "نماینده خود را /nپیدا کنید",
-			"linkLabel": "درباره دموکراسی مدنی بیاموزید"
+	"inputFields": {
+		"name": "نام",
+		"email": "ایمیل",
+		"password": "رمز عبور",
+		"birthday": "تولد",
+		"nationality": "ملیت",
+		"address": "محل سکونت",
+		"uploadID": { "helperText": "آپلود سند هویتی", "buttonLabel": "برای آپلود کلیک کنید" },
+		"termsAndCondtions": {
+			"read": "خواندن",
+			"termsAndConditions": "شرایط و شرایط",
+			"andSignup": "و ثبت نام"
 		},
-		"createAccount": "ایجاد یک حساب کاربری",
-		"help": "کمک",
-		"login": "ورود به سیستم",
-		"loginNow": "اکنون وارد شوید",
-		"loginWithCredentials": "با اعتبار خود وارد شوید",
-		"welcomeBack": "خوش آمدید!",
-		"forgotPassword": "رمز عبور را فراموش کرده اید؟",
-		"dontHaveAccount": "حساب ندارید؟",
+		"makePublic": "عمومی کردن"
+	},
+	"socialButtons": {
+		"google": "گوگل",
+		"facebook": "فیس بوک",
+		"twitter": "تویتر",
+		"github": "گیثوب"
+	},
+	"profile": {
+		"loginForm": {
+			"findYourOpenActor": {
+				"title": "نماینده خود را /nپیدا کنید",
+				"linkLabel": "درباره دموکراسی مدنی بیاموزید"
+			},
+			"naviHelperText": "ایجاد یک حساب کاربری",
+			"naviButtonLabel": "ثبت نام",
+
+			"title": "خوش آمدید!",
+			"subtitle": "ورود به سیستم",
+			"or": "یا",
+			"forgotPassword": "رمز عبور را فراموش کرده اید؟",
+			"buttonLabel": "ورود به سیستم"
+		},
+		"signupForm": {
+			"hero": {
+				"title": "یک حساب کاربری ایجاد کنید \n& به ما بپیوندید!"
+			},
+			"naviHelperText": "از قبل یک حساب کاربری دارم",
+			"naviButtonLabel": "ورود به سیستم",
+
+			"title": "اکانت خود را بسازید",
+			"subtitle": "اطلاعات خود را وارد کنید و اکنون حساب کاربری خود را ایجاد کنید",
+			"buttonLabel": "ثبت نام",
+			"CliamIdentity": {
+				"text": "اگر فردی هستید که قبلاً اضافه شده‌اید و می‌خواهید آن هویت را ادعا کنید، لطفاً به آن ایمیل بنویسید"
+			}
+		},
 		"footer": {
 			"instantUpdates": "به روز رسانی های فوری در"
-		},
-		"loginForm": {
-			"username": "نام کاربری",
-			"password": "رمز عبور"
 		}
 	}
 }

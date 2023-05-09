@@ -1,32 +1,70 @@
 {
 	"hello": "Hello World",
-	"lang": "English",
-
+	"lang": { "en": "English", "de": "Deutsch", "he": "עברית", "fa-IR": "فارسی" },
+	"countryCode": {
+		"en": "usa",
+		"de": "deu",
+		"he": "isr",
+		"fa-IR": "irn"
+	},
 	"errorPage": {
 		"title": "Etwas stimmt nicht...",
 		"subTitle": "Die Seite, die Sie zu öffnen versuchen, existiert nicht. Möglicherweise haben Sie sich bei der Adresse vertippt oder die Seite\nwurde auf eine andere URL verschoben. Wenn Sie der Meinung sind, dass dies ein Fehler ist, wenden Sie sich an den Support.",
 		"buttonLabel": "Zur Startseite zurückkehren"
 	},
-	"login": {
-		"findYourOpenActor": {
-			"title": "Find Your Open\nActor",
-			"linkLabel": "Learn about Civil Democracy"
+	"inputFields": {
+		"name": "Name",
+		"email": "Email",
+		"password": "Password",
+		"birthday": "Birthday",
+		"nationality": "Nationality",
+		"address": "Place of residence",
+		"uploadID": { "helperText": "Upload identity document", "buttonLabel": "Click to upload" },
+		"termsAndCondtions": {
+			"read": "Read",
+			"termsAndConditions": "Terms and conditions",
+			"andSignup": "and signup"
 		},
-		"createAccount": "Create an account",
-		"help": "Help",
-		"login": "Login",
-		"loginNow": "Login Now",
-		"or": "or",
-		"loginWithCredentials": "login with your credentials",
-		"welcomeBack": "Welcome back!",
-		"forgotPassword": "Forgot password?",
-		"dontHaveAccount": "Don't have an account?",
+		"makePublic": "Make Public"
+	},
+	"socialButtons": {
+		"google": "Google",
+		"facebook": "Facebook",
+		"twitter": "Twitter",
+		"github": "Github"
+	},
+	"profile": {
+		"loginForm": {
+			"hero": {
+				"title": "Find Your Open\nActor",
+				"linkLabel": "Learn about Civil Democracy"
+			},
+			"naviHelperText": "Create an account",
+			"naviButtonLabel": "Signup",
+
+			"title": "Welcome back!",
+			"subtitle": "Login",
+			"or": "or",
+			"forgotPassword": "Forgot password?",
+			"buttonLabel": "Login"
+		},
+		"signupForm": {
+			"hero": {
+				"title": "Create an account \n& Join us !"
+			},
+			"naviHelperText": "Already have an account",
+			"naviButtonLabel": "Login",
+
+			"title": "Create your account",
+			"subtitle": "Enter your information and create\nyour account now",
+			"buttonLabel": "Sign up",
+			"cliamIdentity": {
+				"text": "If your are a person that has already been added and want to claim that identity, please write an email to",
+				"email": "individualoas@civil-democracy.org"
+			}
+		},
 		"footer": {
 			"instantUpdates": "Instant Updates at"
-		},
-		"loginForm": {
-			"username": "Username",
-			"password": "Password"
 		}
 	}
 }

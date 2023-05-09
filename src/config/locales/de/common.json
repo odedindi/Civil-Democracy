@@ -1,27 +1,62 @@
 {
 	"hello": "Hallo Welt",
-	"lang": "Deutsch",
+	"lang": { "de": "Deutsch" },
 
-	"login": {
-		"findYourOpenActor": {
-			"title": "Finden Sie Ihren\nopen actor",
-			"linkLabel": "Mehr über Zivildemokratie erfahren"
+	"errorPage": {
+		"title": "Something's wrong...",
+		"subTitle": "The page you are trying to open does not exist. You may have mistyped the address or the page\nmoved to a different URL. If you think this is an error, please contact contact support.",
+		"buttonLabel": "Return to home page"
+	},
+	"inputFields": {
+		"name": "Name",
+		"email": "Email",
+		"password": "Passwort",
+		"birthday": "Geburtstag",
+		"nationality": "Nationalität",
+		"address": "Wohnort",
+		"uploadID": {
+			"helperText": "Ausweisdokument hochladen",
+			"buttonLabel": "Zum Hochladen klicken"
 		},
-		"createAccount": "Create an account",
-		"help": "Hilfe",
-		"login": "Anmelden",
-		"loginNow": "Jetzt Anmelden",
-		"or": "oder",
-		"welcomeBack": "Willkommen zurück!",
-		"loginWithCredentials": "melden Sie sich mit Ihren Zugangsdaten an",
-		"forgotPassword": "Passwort vergessen?",
-		"dontHaveAccount": "Sie haben kein Konto?",
-		"footer": {
-			"instantUpdates": "Sofortige Updates um"
+		"termsAndCondtions": {
+			"read": "Lesen",
+			"termsAndConditions": "Allgemeine Geschäftsbedingungen",
+			"andSignup": "und anmelden"
 		},
+		"makePublic": "Öffentlich machen"
+	},
+	"profile": {
 		"loginForm": {
-			"username": "Benutzername",
-			"password": "Passwort"
+			"hero": {
+				"title": "Finden Sie Ihren\nopen actor",
+				"linkLabel": "Mehr über Zivildemokratie erfahren"
+			},
+			"naviHelperText": "Create an account",
+			"naviButtonLabel": "Signup",
+
+			"title": "Willkommen zurück!",
+			"subtitle": "Anmelden",
+			"or": "oder",
+			"forgotPassword": "Passwort vergessen?",
+			"buttonLabel": "Anmelden",
+
+			"signupForm": {
+				"hero": {
+					"title": "Konto erstellen \n& Treten Sie uns bei!"
+				},
+				"naviHelperText": "Haben Sie bereits ein Konto",
+				"naviButtonLabel": "Anmelden",
+
+				"title": "Erstellen Sie Ihr Konto",
+				"subtitle": "Geben Sie Ihre Daten ein und erstellen Sie jetzt Ihr Konto",
+				"buttonLabel": "Anmelden",
+				"cliamIdentity": {
+					"text": "Wenn Sie eine bereits hinzugefügte Person sind und diese Identität beanspruchen möchten, schreiben Sie bitte eine E-Mail an"
+				}
+			},
+			"footer": {
+				"instantUpdates": "Sofortige Updates um"
+			}
 		}
 	}
 }
