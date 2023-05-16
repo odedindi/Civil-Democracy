@@ -35,7 +35,7 @@ const fonts = {
 	`,
 	bodyMd: css`
 		font-size: 14px;
-		font-weight: 400;
+		font-weight: 500;
 	`,
 	bodySm: css`
 		font-size: 12px;
