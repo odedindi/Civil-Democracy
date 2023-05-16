@@ -1,5 +1,5 @@
 # Civil Democracy
-
+add some text here for an example
 ## context
 
 - Civil democracy platform _to unite global civil society_ [introduction pdf by Dr. Scholz](https://github.com/odedindi/Civil-Democracy/blob/c38ffaf492528b5c809bb169a6f38ad962ae9b73/documentation/introduction.pdf)
