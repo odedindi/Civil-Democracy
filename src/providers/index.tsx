@@ -3,6 +3,7 @@ import SEOProvider from './SEO'
 import StylesProvider from './styles'
 
 import AuthProvider from './Auth'
+import QueryProvider from './Query'
 
 const Providers: React.FC<React.PropsWithChildren<{ session: Session }>> = ({
 	children,
@@ -10,8 +11,10 @@ const Providers: React.FC<React.PropsWithChildren<{ session: Session }>> = ({
 }) => (
 	<>
 		<AuthProvider session={session}>
-			<SEOProvider />
-			<StylesProvider>{children}</StylesProvider>
+			<QueryProvider>
+				<SEOProvider />
+				<StylesProvider>{children}</StylesProvider>
+			</QueryProvider>
 		</AuthProvider>
 	</>
 )

@@ -1,32 +1,64 @@
 {
 	"hello": "שלום עולם",
-	"lang": "עברית",
+	"lang": { "he": "עברית" },
 
 	"errorPage": {
 		"title": "משהו לא תקין...",
 		"subTitle": "הדף שאת/ה מנסה לפתוח אינו קיים. ייתכן שטעית בהקלדת הכתובת, או שהדף\nהועבר לכתובת אחרת. אם אתה חושב שזוהי שגיאה פנה לתמיכה.",
 		"buttonLabel": "חזור לדף הבית"
 	},
-	"login": {
-		"findYourOpenActor": {
-			"title": "מצא/י את הנציג\nהחופשי",
-			"linkLabel": "למד עוד על דמוקרטיה אזרחית"
+	"inputFields": {
+		"name": "שם",
+		"email": "אימייל",
+		"password": "סיסמא",
+		"birthday": "תאריך לידה",
+		"nationality": "לאום",
+		"address": "כתובת מגורים",
+		"uploadID": { "helperText": "העלה מסמך זיהוי", "buttonLabel": "לחץ להעלאה" },
+		"termsAndCondtions": {
+			"read": "קרא/י",
+			"termsAndConditions": "תנאים והגבלות",
+			"andSignup": "והירשם/י"
 		},
-		"createAccount": "צור חשבון",
-		"help": "עזרה",
-		"login": "התחבר/י",
-		"loginNow": "התחבר/י כעת",
-		"or": "או",
-		"loginWithCredentials": "התחבר/י באמצעות פרטיך",
-		"welcomeBack": "ברוכים השבים",
-		"forgotPassword": "שכחת את הסיסמה?",
-		"dontHaveAccount": "אין לך עדיין חשבון?",
-		"footer": {
-			"instantUpdates": "לעדכונים מיידים"
-		},
+		"makePublic": "הפוך לציבורי"
+	},
+	"socialButtons": {
+		"google": "גוגל",
+		"facebook": "פייסבוק",
+		"twitter": "טוויטר",
+		"github": "גיטהאב"
+	},
+	"profile": {
 		"loginForm": {
-			"username": "שם משתמש",
-			"password": "סיסמא"
+			"hero": {
+				"title": "מצא את הנציג\nשךף",
+				"linkLabel": "למד/י עוד דמוקרטיה אזרחית"
+			},
+			"naviHelperText": "צור/צרי חשבון",
+			"naviButtonLabel": "הרשמה",
+
+			"title": "ברוכים השבים!",
+			"subtitle": "כניסה",
+			"or": "או",
+			"forgotPassword": "שכחת את הסיסמא?",
+			"buttonLabel": "התחברות"
+		},
+		"signupForm": {
+			"hero": {
+				"title": "צור/צרי חשבון \n& והצטרף/י אלינו!"
+			},
+			"naviHelperText": "כבר יש לך חשבון?",
+			"naviButtonLabel": "התחברות",
+
+			"title": "צור/צרי חשבון",
+			"subtitle": "בבקשה הכנס/י את פרטייך\nופתח חשבון",
+			"buttonLabel": "הרשמה",
+			"cliamIdentity": {
+				"text": "אם אתה אדם שכבר התווסף וברצונך לתבוע את הזהות הזו, אנא כתוב אימייל אל"
+			}
+		},
+		"footer": {
+			"instantUpdates": "עדכונים מיידים ב"
 		}
 	}
 }

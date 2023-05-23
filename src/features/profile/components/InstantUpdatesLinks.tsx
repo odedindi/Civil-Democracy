@@ -27,11 +27,11 @@ const P = styled.p`
 	color:${selectColor('black')};
 `
 
-const InstantUpdatesLinks: React.FC = () => {
-	const { t } = useTranslation('common', { keyPrefix: 'login.footer' })
+const InstantUpdatesLinks: React.FC<{ style?: React.CSSProperties }> = ({ style }) => {
+	const { t } = useTranslation('common', { keyPrefix: 'profile.footer' })
 
 	return (
-		<Footer>
+		<Footer style={style}>
 			<P>{t('instantUpdates')}</P>
 			<Row>
 				<ActionIcon variant="transparent" component={Link} href={'#'} title="Instagram">
