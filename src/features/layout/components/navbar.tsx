@@ -55,7 +55,7 @@ const NavbarLinkItem = styled(Text).attrs({ component: Link })`
 `
 
 const Chevron = styled(IconChevronRight).attrs({ size: `${selectSpacing(2)}px`, stroke: 1.5 })<{
-	opened?: boolean
+	opened?: 0 | 1
 }>`
 	transition: transform 200ms ease;
 	transform: rotate(
@@ -72,11 +72,11 @@ const StyledCollapse = styled(Collapse)`
 
 function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksGroupProps) {
 	const hasLinks = Array.isArray(links)
-	const [opened, setOpened] = useState(initiallyOpened ?? false)
+	const [opened, setOpened] = useState<0 | 1>(initiallyOpened ? 1 : 0)
 
 	return (
 		<>
-			<NavbarLinkContainer onClick={() => setOpened((o) => !o)}>
+			<NavbarLinkContainer onClick={() => setOpened((o) => (o ? 0 : 1))}>
 				<Group position="apart" spacing={0}>
 					<Box sx={{ display: 'flex', alignItems: 'center' }}>
 						<ThemeIcon variant="light" size={30}>
@@ -88,7 +88,7 @@ function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksGroupPro
 				</Group>
 			</NavbarLinkContainer>
 			{hasLinks ? (
-				<StyledCollapse in={opened}>
+				<StyledCollapse in={Boolean(opened)}>
 					{(links ?? []).map((link) => (
 						<NavbarLinkItem<typeof Link>
 							href={link.link}
