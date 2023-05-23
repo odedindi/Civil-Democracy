@@ -18,7 +18,8 @@
 		"noUnusedParameters": false,
 		"preserveWatchOutput": true,
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"~gql": ["./generated"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

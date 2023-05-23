@@ -1,9 +1,20 @@
-import LanguageSwitchLink from '@/ui/ChangeLanguageLink'
 import { makeStaticProps } from '@/utils/makeStaticProps'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import DashboardLayout from '@/features/layout'
+import { graphql } from '@/generated'
+
+const QueryMe = graphql(/* GraphQL */ `
+	query Me {
+		me {
+			id
+			name
+			email
+			image
+		}
+	}
+`)
 
 export default function Home() {
 	const router = useRouter()

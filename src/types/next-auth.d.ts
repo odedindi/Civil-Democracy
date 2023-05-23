@@ -1,25 +1,22 @@
 // nextauth.d.ts
 import { DefaultSession, DefaultUser } from 'next-auth'
-
-export enum Role {
-	user = 'user',
-	admin = 'admin',
-}
+import type { UserRole, User as PrismaUser } from '@prisma/client'
 
 interface IUser extends DefaultUser {
-	id?: string
-	role?: Role
+	id: string
+	role: UserRole
 	subscribed?: boolean
 }
 
 declare module 'next-auth/jwt' {
-	interface JWT extends IUser {}
+	interface JWT extends IUser {
+		role: UserRole
+		id: PrismaUser['id']
+	}
 }
 
 declare module 'next-auth' {
-	interface User extends IUser {
-		id?: string
-	}
+	interface User extends IUser {}
 	interface Session {
 		user?: User
 		token?: JWT
