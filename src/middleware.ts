@@ -1,4 +1,3 @@
-
 import { stackMiddlewares } from '@/middlewares/stackMiddlewares'
 import { withHeaders } from '@/middlewares/withHeaders'
 import { withLocale } from '@/middlewares/withLocale'

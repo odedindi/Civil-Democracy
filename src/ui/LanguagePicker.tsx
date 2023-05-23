@@ -16,7 +16,7 @@ const Base = styled(Menu)`
 `
 
 const Container = styled.button<{
-	opened?: boolean
+	opened: 0 | 1
 }>`
 	width: 100%;
 	display: flex;
@@ -34,7 +34,7 @@ const Container = styled.button<{
 `
 
 const Icon = styled(IconChevronDown).attrs({ size: `${selectSpacing(2)}px`, stroke: 1.5 })<{
-	opened?: boolean
+	opened: 0 | 1
 }>`
 	transition: transform 150ms ease;
 	transform: rotate(${({ opened }) => (opened ? 180 : 0)}deg);
@@ -44,19 +44,14 @@ type Locale = 'en' | 'de' | 'he' | 'fa-IR'
 
 function LanguagePicker() {
 	const { t } = useTranslation('common')
-	const [opened, setOpened] = useState(false)
+	const [opened, setOpened] = useState<0 | 1>(0)
 
 	const router = useRouter()
 	const locales = (router.locales ?? []) as Locale[]
 	const activeLocale = router.locale as Locale
 
 	return (
-		<Base
-			width="target"
-			withinPortal
-			onOpen={() => setOpened(true)}
-			onClose={() => setOpened(false)}
-		>
+		<Base width="target" withinPortal onOpen={() => setOpened(1)} onClose={() => setOpened(0)}>
 			<Menu.Target>
 				<Container opened={opened}>
 					<Group spacing="xs">
