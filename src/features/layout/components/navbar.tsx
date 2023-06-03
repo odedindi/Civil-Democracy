@@ -108,6 +108,7 @@ const Base = styled(MantineNavbar).attrs({ hiddenBreakpoint: 'sm' })`
 	width: 300px;
 	padding: ${selectSpacing(1.5)}px;
 	right: ${({ theme: { dir } }) => (dir === 'rtl' ? 0 : undefined)};
+	position: relative;
 `
 
 const Inner = styled.div`
@@ -116,7 +117,7 @@ const Inner = styled.div`
 
 const Footer = styled(MantineNavbar.Section)`
 	border-top: solid ${selectSpacing(0.125)}px ${selectColor('blue')};
-	margin-bottom: ${selectSpacing(1.25)}px;
+	margin: ${selectSpacing(1.25)}px 0;
 `
 
 const Navbar: React.FC<{ hidden?: boolean }> = ({ hidden }) => {
@@ -137,6 +138,7 @@ const Navbar: React.FC<{ hidden?: boolean }> = ({ hidden }) => {
 				</Inner>
 			</MantineNavbar.Section>
 
+			<LanguagePicker />
 			<Footer>
 				{session?.user?.email && session.user.name && session.user.image ? (
 					<UserButton
@@ -145,7 +147,7 @@ const Navbar: React.FC<{ hidden?: boolean }> = ({ hidden }) => {
 						email={session.user.email}
 					/>
 				) : (
-					<Button component={Link} color="dark" sx={{ width: '100%' }} href={'/profile/login'}>
+					<Button component={Link} color="dark" sx={{ width: '100%' }} href={'/login'}>
 						Login
 					</Button>
 				)}
@@ -155,7 +157,6 @@ const Navbar: React.FC<{ hidden?: boolean }> = ({ hidden }) => {
 					</Button>
 				) : null}
 			</Footer>
-			<LanguagePicker />
 		</Base>
 	)
 }

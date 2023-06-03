@@ -10,7 +10,7 @@ export default function Home() {
 	const { t } = useTranslation()
 
 	// useEffect(() => {
-	// 	router.push('/profile/login')
+	// 	router.push('/login')
 	// }, [router])
 
 	return (

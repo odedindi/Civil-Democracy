@@ -74,7 +74,7 @@ const StylesProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
 	return (
 		<ThemeProvider theme={{ ...theme, dir }}>
 			<GlobalStyles />
-			<MantineProvider withNormalizeCSS inherit theme={{ fontFamily: 'Work Sans, Campton' }}>
+			<MantineProvider withNormalizeCSS inherit theme={{ fontFamily: 'Work Sans, Campton', dir }}>
 				<RtlWrapper>{children}</RtlWrapper>
 			</MantineProvider>
 		</ThemeProvider>
