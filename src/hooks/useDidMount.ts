@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 
+const delay = 0.5 // seconds
 export const useDidMount = () => {
 	const [isMounted, setIsMounted] = useState<boolean>(false)
 
 	useEffect(() => {
-		setIsMounted(true)
-
+		const timer = setTimeout(() => setIsMounted(true), delay * 1000)
 		return () => {
-			setIsMounted(false)
+			clearTimeout(timer)
 		}
 	}, [isMounted])
 

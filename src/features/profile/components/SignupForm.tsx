@@ -16,8 +16,6 @@ import { selectSpacing, selectFont, selectColor } from '@/utils/themeUtils'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import type { FileWithPath } from '@mantine/dropzone'
-import dayjs from 'dayjs'
-import { useCallback } from 'react'
 import { useNationalities } from '../hooks/useNationalities'
 
 type SignupFormFields = {
