@@ -11,12 +11,14 @@ import { signOut, useSession } from 'next-auth/react'
 import UserButton from './userButton'
 import LanguagePicker from '@/ui/LanguagePicker'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface LinksGroupProps {
 	icon: React.FC<any>
 	label: string
 	initiallyOpened?: boolean
 	links?: { label: string; link: string }[]
+	link?: string
 }
 
 const NavbarLinkContainer = styled.div`
@@ -37,7 +39,7 @@ const NavbarLinkLabel = styled.div`
 	margin-inline-start: ${selectSpacing(1)}px;
 `
 
-const NavbarLinkItem = styled(Text).attrs({ component: Link })`
+const NavbarLinkItem = styled(Text).attrs({ component: Link })<{ isactive?: 0 | 1 }>`
 	direction: ${({ theme: { dir } }) => dir};
 	${selectFont('bodyMd')}
 	display: 'block';
@@ -47,10 +49,10 @@ const NavbarLinkItem = styled(Text).attrs({ component: Link })`
 
 	margin-inline-start: ${selectSpacing(3)}px;
 	border-inline-start: ${selectSpacing(0.125)}px solid ${selectColor('gray')};
-
+	border-inline-color: ${({ isactive }) => (isactive ? selectColor('blue') : 'inherit')};
+	color: ${({ isactive }) => (isactive ? selectColor('blue') : 'inherit')};
 	:hover {
 		background-color: ${selectColor('bgWhite')};
-		color: ${selectColor('black')};
 	}
 `
 
@@ -70,32 +72,53 @@ const StyledCollapse = styled(Collapse)`
 	}
 `
 
-function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksGroupProps) {
-	const hasLinks = Array.isArray(links)
+function LinksGroup({ icon: Icon, label, initiallyOpened, link, links }: LinksGroupProps) {
 	const [opened, setOpened] = useState<0 | 1>(initiallyOpened ? 1 : 0)
+
+	const router = useRouter()
 
 	return (
 		<>
 			<NavbarLinkContainer onClick={() => setOpened((o) => (o ? 0 : 1))}>
 				<Group position="apart" spacing={0}>
-					<Box sx={{ display: 'flex', alignItems: 'center' }}>
-						<ThemeIcon variant="light" size={30}>
-							<Icon size="1.1rem" />
-						</ThemeIcon>
-						<NavbarLinkLabel>{label}</NavbarLinkLabel>
-					</Box>
-					{hasLinks ? <Chevron opened={opened} /> : null}
+					{link ? (
+						<Link
+							href={link}
+							passHref
+							style={{
+								fontStyle: 'inherit',
+								color: 'inherit',
+								textDecoration: 'none',
+								display: 'flex',
+								alignItems: 'center',
+							}}
+						>
+							<ThemeIcon variant="light" size={30}>
+								<Icon size="1.1rem" />
+							</ThemeIcon>
+							<NavbarLinkLabel>{label}</NavbarLinkLabel>
+						</Link>
+					) : (
+						<Box sx={{ display: 'flex', alignItems: 'center' }}>
+							<ThemeIcon variant="light" size={30}>
+								<Icon size="1.1rem" />
+							</ThemeIcon>
+							<NavbarLinkLabel>{label}</NavbarLinkLabel>
+						</Box>
+					)}
+
+					{links ? <Chevron opened={opened} /> : null}
 				</Group>
 			</NavbarLinkContainer>
-			{hasLinks ? (
+			{links ? (
 				<StyledCollapse in={Boolean(opened)}>
-					{(links ?? []).map((link) => (
+					{(links ?? []).map(({ link, label }) => (
 						<NavbarLinkItem<typeof Link>
-							href={link.link}
-							key={link.label}
-							onClick={(event) => event.preventDefault()}
+							href={link}
+							key={label}
+							isactive={router.route.includes(link) ? 1 : 0}
 						>
-							{link.label}
+							{label}
 						</NavbarLinkItem>
 					))}
 				</StyledCollapse>
@@ -140,11 +163,12 @@ const Navbar: React.FC<{ hidden?: boolean }> = ({ hidden }) => {
 
 			<LanguagePicker />
 			<Footer>
-				{session?.user?.email && session.user.name && session.user.image ? (
+				{session?.user?.id && session?.user?.email && session.user.name && session.user.image ? (
 					<UserButton
 						image={session.user.image}
 						name={session.user.name}
 						email={session.user.email}
+						id={session.user.id}
 					/>
 				) : (
 					<Button component={Link} color="dark" sx={{ width: '100%' }} href={'/login'}>
@@ -169,11 +193,11 @@ const navbarLinks = [
 		icon: IconUsersGroup,
 		initiallyOpened: true,
 		links: [
-			{ label: 'Overview', link: '/' },
-			{ label: 'Upcoming votes', link: '/' },
-			{ label: 'Previous votes', link: '/' },
+			{ label: 'Overview', link: '/participate/overview' },
+			{ label: 'Upcoming votes', link: '/participate/upcoming-votes' },
+			{ label: 'Previous votes', link: '/participate/previous-votes' },
 		],
 	},
-	{ label: 'Trust', icon: IconShieldHalfFilled },
-	{ label: 'Support', icon: IconHomeDollar },
+	{ label: 'Trust', icon: IconShieldHalfFilled, link: '/trust' },
+	{ label: 'Support', icon: IconHomeDollar, link: '/support' },
 ]

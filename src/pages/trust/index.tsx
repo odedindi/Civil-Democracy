@@ -3,12 +3,10 @@ import { useDidMount } from '@/hooks/useDidMount'
 
 import { makeStaticProps } from '@/utils/makeStaticProps'
 import { Center, Loader } from '@mantine/core'
-import type { GetStaticPaths, NextPage } from 'next'
+import type { NextPage } from 'next'
 import { useSession } from 'next-auth/react'
 
-import ProfileForm from '@/features/profile/components/ProfileForm'
-
-const ProfilePage: NextPage = () => {
+const TrustPage: NextPage = () => {
 	const isMounted = useDidMount()
 	const { data: session } = useSession()
 
@@ -21,17 +19,9 @@ const ProfilePage: NextPage = () => {
 
 	if (!session?.user) return <>no user found</>
 
-	return (
-		<DashboardLayout>{session.user ? <ProfileForm user={session.user} /> : null}</DashboardLayout>
-	)
+	return <DashboardLayout>{'trust'}</DashboardLayout>
 }
 
 export const getStaticProps = makeStaticProps()
-export const getStaticPaths: GetStaticPaths = async () => {
-	return {
-		paths: [],
-		fallback: false,
-	}
-}
 
-export default ProfilePage
+export default TrustPage
