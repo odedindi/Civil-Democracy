@@ -3,36 +3,40 @@ import { Group } from '@mantine/core'
 
 import styled from 'styled-components'
 
-import { Text, UnstyledButton } from '@mantine/core'
+import { Text } from '@mantine/core'
 import { IconChevronRight } from '@tabler/icons-react'
 
-import { UnstyledButtonProps, Avatar } from '@mantine/core'
+import { Avatar } from '@mantine/core'
+import Link from 'next/link'
 
-const Base = styled(UnstyledButton)`
+const Base = styled(Link)`
+	text-decoration: none;
 	display: block;
 	width: 100%;
 	padding: ${selectSpacing(2)}px;
 	border-radius: ${selectSpacing(0.5)}px;
+	font-style: inherit;
+	color: inherit;
 
 	:hover {
 		background-color: ${selectColor('bgWhite')};
 	}
 `
 
-interface UserButtonProps extends UnstyledButtonProps {
+type UserButtonProps = {
 	image: string
 	name: string
 	email: string
-	icon?: React.ReactNode
+	id: string
 }
 
 const Icon = styled(IconChevronRight).attrs({ size: `${selectSpacing(2)}px`, stroke: 1.5 })`
 	transform: rotate(${({ theme: { dir } }) => (dir === 'rtl' ? 180 : 0)}deg);
 `
 
-const UserButton = ({ image, name, email, icon, ...others }: UserButtonProps) => {
+const UserButton = ({ image, name, email, id, ...others }: UserButtonProps) => {
 	return (
-		<Base {...others}>
+		<Base {...others} href={`/profile/${id}`} passHref>
 			<Group>
 				<Avatar src={image} radius="xl" />
 
