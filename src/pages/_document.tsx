@@ -2,9 +2,11 @@ import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/do
 
 import { ServerStyleSheet } from 'styled-components'
 import i18nextConfig from '../../next-i18next.config'
+import { resetServerContext } from 'react-beautiful-dnd'
 
 export default class _Document extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
+		resetServerContext()
 		const sheet = new ServerStyleSheet()
 		const originalRenderPage = ctx.renderPage
 

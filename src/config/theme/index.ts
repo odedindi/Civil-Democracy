@@ -1,3 +1,4 @@
+import boxShadow from './boxShadow'
 import colors from './colors'
 import fonts from './fonts'
 import sizes from './sizes'
@@ -6,6 +7,7 @@ const theme = {
 	sizes,
 	colors,
 	fonts,
+	boxShadow,
 	dir: 'ltr' as Dir,
 }
 
@@ -15,6 +17,8 @@ export type ThemeGroup = keyof Theme
 export type Color = keyof Theme['colors']
 export type Font = keyof Theme['fonts']
 export type Size = keyof Theme['sizes']
+export type BoxShadow = keyof Theme['boxShadow']
+
 export type Dir = 'rtl' | 'ltr'
 export interface WithThemeProps {
 	theme: Theme

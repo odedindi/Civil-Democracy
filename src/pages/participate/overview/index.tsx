@@ -1,19 +1,28 @@
 import DashboardLayout from '@/features/layout'
-import { DndListHandle, QuoteApp } from '@/features/participate/components/VoteQueries'
+import VoteQueries from '@/features/participate/components/VoteQueries'
+import { VoteQuery } from '@/features/participate/components/types'
+
 import { useDidMount } from '@/hooks/useDidMount'
 
 import { makeStaticProps } from '@/utils/makeStaticProps'
 import { Center, Loader } from '@mantine/core'
+import { useQuery } from '@tanstack/react-query'
 import type { NextPage } from 'next'
 import { useSession } from 'next-auth/react'
-import { useState } from 'react'
 
 const ParticipationPage: NextPage = () => {
 	const isMounted = useDidMount()
 	const { data: session } = useSession()
 
-	const [data, setData] = useState(() => [...mockData])
-	if (!isMounted)
+	const { data, isLoading } = useQuery<{ queries: VoteQuery[] }>({
+		queryKey: ['participation-overview'],
+		queryFn: async () => {
+			const res = await fetch('/mockData.json')
+			return await res.json()
+		},
+	})
+
+	if (!isMounted || isLoading)
 		return (
 			<Center sx={{ height: '50vh' }}>
 				<Loader />
@@ -27,8 +36,7 @@ const ParticipationPage: NextPage = () => {
 			{'overview'}
 			{process.env.NODE_ENV === 'development' ? (
 				<>
-					<QuoteApp />
-					<DndListHandle data={data} />
+					<VoteQueries queries={data?.queries ?? []} />
 				</>
 			) : null}
 		</DashboardLayout>
@@ -38,8 +46,3 @@ const ParticipationPage: NextPage = () => {
 export const getStaticProps = makeStaticProps()
 
 export default ParticipationPage
-
-const mockData = [
-	{ position: 6, mass: 12.011, symbol: 'C', name: 'Carbon' },
-	{ position: 7, mass: 14.007, symbol: 'N', name: 'Nitrogen' },
-]

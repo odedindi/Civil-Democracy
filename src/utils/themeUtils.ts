@@ -1,7 +1,9 @@
 import {
+	BoxShadow,
 	Color,
 	Font,
 	Size,
+	Theme,
 	ThemeGroup,
 	ThemeKeyOrFunc,
 	ThemeKeySelector,
@@ -15,18 +17,18 @@ import sizes from '../config/theme/sizes'
 import { css } from 'styled-components'
 
 export const select =
-	<T extends string>(
+	<T extends string | number>(
 		group: ThemeGroup,
 		themeKeyOrFunc: ThemeKeyOrFunc<T>,
 		transform: TransformFunc = null,
 	) =>
-	(props: any) => {
+	(props: Required<{ theme: Theme }>) => {
 		let transformFunc = null
 		const theme = props.theme
 
 		if (transform) {
 			if (isNumber(transform)) {
-				transformFunc = (v: any) => (transform as number) * v
+				transformFunc = (v: number): number => (transform as number) * Number(v)
 			} else if (isFunction(transform)) {
 				transformFunc = transform
 			} else {
@@ -55,6 +57,11 @@ export const selectSize = (themeKeyOrFunc: ThemeKeyOrFunc<Size>, transform?: Tra
 
 export const selectFont = (themeKeyOrFunc: ThemeKeyOrFunc<Font>, transform?: TransformFunc) =>
 	select('fonts', themeKeyOrFunc, transform)
+
+export const selectBoxShadow = (
+	themeKeyOrFunc: ThemeKeyOrFunc<BoxShadow>,
+	transform?: TransformFunc,
+) => select('boxShadow', themeKeyOrFunc, transform)
 
 export const selectSpacing = (faktor: number): number => sizes.basePadding * faktor
 

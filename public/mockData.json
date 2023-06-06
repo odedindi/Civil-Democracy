@@ -1,8 +1,8 @@
 {
-	"voteQuery": [
+	"queries": [
 		{
 			"title": "Linking Hills",
-			"voteQueryDescription": {
+			"description": {
 				"subtitle": "What way to link the hills?",
 				"text": "We need to move between the hills, so which way may we take? Let’s find a solution to come from A to B. Which one may be the best?"
 			},
@@ -47,7 +47,7 @@
 		},
 		{
 			"title": "YGSC Candidates",
-			"voteQueryDescription": {
+			"description": {
 				"subtitle": "",
 				"text": "Based on your trusted actors, you have currently the following option ranking. Review it!, you can change it by dragging."
 			},
