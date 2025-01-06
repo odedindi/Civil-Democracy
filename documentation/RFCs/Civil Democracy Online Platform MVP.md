@@ -1,8 +1,9 @@
 # Request for Comments: Civil Democracy Online Platform MVP
-Date: 2.1.2025
-Version: 0.1
-Author: Oded Winberger
-Status: Draft
+
+**Date**: 2.1.2025  
+**Version**: 0.1  
+**Author**: Oded Winberger  
+**Status**: Draft  
 
 ## 1. Overview
 This RFC outlines the design, scope, and implementation plan for the Civil Democracy online platform MVP. The platform aims to revolutionize democratic processes through meta-decision freedom and actor openness, enabling citizens to directly participate in decisions or assign trust to actors for representation. This document integrates key considerations, including simplicity, scalability, and the potential for multi-tenancy.
