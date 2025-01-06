@@ -1,6 +1,6 @@
 # Technical Architecture Document for Civil Democracy Online Platform (MVP)
 
-**Date**: 2.1.2025  
+**Date**: 6.1.2025  
 **Version**: 0.1  
 **Author**: Oded Winberger  
 **Status**: Draft  
