@@ -8,40 +8,13 @@
 
 ## App Features
 
-- **postgres DB** (vercel free tier)
-  - login / signup
-  - manage account
-  - assign Open Actors
-  - raise votes
-  - vote
-  - chat
-- **i18n** (ltr & rtl support)
-  - English (en)
-  - German (de)
-  - Hebrew (he)
-  - Farsi (fa-IR) (currently utilizing google translate)
-- graphs queries showing my cv.
-
-## Tech/framework used
-
-This is a [nextjs](https://nextjs.org/) project with
-
-- [turbo](https://github.com/vercel/turbo)
-- [apollo server](https://www.apollographql.com/)
-- [Prisma ORM](https://www.prisma.io/)
-- [Pothos GraphQL](https://pothos-graphql.dev/)
-- [Next-Auth](https://next-auth.js.org/)
-- [next-i18next](https://github.com/i18next/next-i18next
-- for styling
-  - [styled-components](https://github.com/styled-components/styled-components)
-  - [Mantine](https://mantine.dev/)
+TBD
 
 ### getting started and important scripts
 
-- run `turbo dev` to run it locally on [localhost:3000](http://localhost:3000)
-- run `turbo check:types` to check types
-- run `turbo lint` to check linting
-- run `generate:types` to generate new apollo types
+- run `yarn dev` to run it locally on [localhost:3000](http://localhost:3000)
+- run `yarn check:types` to check types
+- run `yarn lint` to check linting
 
 ## Contributing
 
