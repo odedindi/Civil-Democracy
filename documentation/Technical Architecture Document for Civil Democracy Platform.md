@@ -3,7 +3,7 @@
 **Date**: 6.1.2025  
 **Version**: 0.1  
 **Author**: Oded Winberger  
-**Status**: Draft  
+**Status**: Draft
 
 ---
 
@@ -31,32 +31,37 @@ The architecture is based on a **TypeScript and Next.js Fullstack Framework** de
 ### Core Components
 
 #### Frontend:
+
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Styling**: [Tailwind](https://tailwindcss.com/)
 - **UI Library**: [Shadcn](https://ui.shadcn.com/)
 - **I18n**: [next-intl](https://next-intl.dev/)
 
 #### Backend:
+
 - **Framework**: Next.js API routes.
 
 #### Database:
-- **Technology**: PostgreSQL  
-- **Provider**: [Vercel PostgreSQL](https://vercel.com) or [Neon](https://neon.tech/)  
-- **Features**:  
-  - Automatic backups.  
-  - Serverless scaling.  
-  - SSL-enabled connections for security.  
-  - Multi-tenancy supported via schemas.  
+
+- **Technology**: PostgreSQL
+- **Provider**: [Vercel PostgreSQL](https://vercel.com) or [Neon](https://neon.tech/)
+- **Features**:
+  - Automatic backups.
+  - Serverless scaling.
+  - SSL-enabled connections for security.
+  - Multi-tenancy supported via schemas.
   - Structured relationships for users, actors, votes, and trust assignments.
 
 #### Local Development:
-- **Setup**: PostgreSQL via Docker.  
+
+- **Setup**: PostgreSQL via Docker.
 - **Seeding**: Use Prisma's seeding feature with fixture data to populate the local database.
 
 #### Deployment Platform:
-- **Provider**: Vercel  
-- **Features**:  
-  - Serverless infrastructure for fast deployments.  
+
+- **Provider**: Vercel
+- **Features**:
+  - Serverless infrastructure for fast deployments.
   - Global CDN for low-latency access.
 
 ### Multi-Tenancy Design
@@ -64,15 +69,18 @@ The architecture is based on a **TypeScript and Next.js Fullstack Framework** de
 Multi-tenancy is critical to isolate data for different tenant organizations, ensuring scalability and security. The platform will adopt a shared database with schema separation to support multiple tenants efficiently. Each tenant will have its own schema in the PostgreSQL database.
 
 #### Approach:
+
 - Shared database with schema-based separation.
 - Each tenant (e.g., local civic groups or regional organizations) has its own schema, ensuring data isolation while leveraging a single database instance.
 
 #### Implementation Details:
-- **Schema Per Tenant**: Each tenant has its own schema for data isolation.  
-- **Global Metadata Table**: Tracks tenant configurations (e.g., schema name, tenant-specific settings).  
+
+- **Schema Per Tenant**: Each tenant has its own schema for data isolation.
+- **Global Metadata Table**: Tracks tenant configurations (e.g., schema name, tenant-specific settings).
 - **Dynamic Schema Switching**: Logic determines the schema based on the tenant context (e.g., from subdomain, tenant ID, or API token).
 
 #### Implementation in Next.js:
+
 - Use middleware to determine the tenant context based on the request.
 - Use Prisma's schema feature or PostgreSQL's `SET search_path` for schema-specific queries.
 
@@ -83,36 +91,42 @@ Multi-tenancy is critical to isolate data for different tenant organizations, en
 ### Key Data Entities and Relationships
 
 #### Users
-- **Attributes**: id, name, email, role (citizen/actor), created_at, updated_at.  
+
+- **Attributes**: id, name, email, role (citizen/actor), created_at, updated_at.
 - **Relationships**:
-  - Users can vote (Votes).  
+  - Users can vote (Votes).
   - Users can assign trust to Actors.
 
 #### Actors
-- **Attributes**: id, name, type (individual/group), description, created_at, updated_at.  
+
+- **Attributes**: id, name, type (individual/group), description, created_at, updated_at.
 - **Relationships**:
-  - Actors can be trusted by Users.  
+  - Actors can be trusted by Users.
   - Actors express preferences on Votes.
 
 #### Groups
-- **Attributes**: id, name, description, created_at, updated_at.  
+
+- **Attributes**: id, name, description, created_at, updated_at.
 - **Relationships**:
-  - Groups can contain multiple Actors.  
+  - Groups can contain multiple Actors.
   - Groups can be trusted by Users.
 
 #### Votes
-- **Attributes**: id, topic, description, options (array), start_date, end_date, created_at, updated_at.  
+
+- **Attributes**: id, topic, description, options (array), start_date, end_date, created_at, updated_at.
 - **Relationships**:
-  - Votes are participated in by Users.  
+  - Votes are participated in by Users.
   - Results are influenced by trust-weighted preferences from Actors (TBD).
 
 #### Trust Assignments
-- **Attributes**: id, user_id, actor_id, trust_level (e.g., 0-100), created_at, updated_at.  
+
+- **Attributes**: id, user_id, actor_id, trust_level (e.g., 0-100), created_at, updated_at.
 - **Relationships**:
-  - Users assign trust to Actors.  
+  - Users assign trust to Actors.
   - Aggregated trust levels influence decision-making.
 
 #### Workflows
+
 - Voting Workflow:
   - User logs in and views active votes.
   - User selects a vote and either:
@@ -120,9 +134,9 @@ Multi-tenancy is critical to isolate data for different tenant organizations, en
     - Defers voting by assigning trust to an actor.
   - Vote results are calculated in real time and displayed on the dashboard.
 - Trust Assignment Workflow:
- - User browses actor profiles.
- - User assigns trust levels to selected actors.
- - Trust assignments influence future vote outcomes when the user defers voting.
+- User browses actor profiles.
+- User assigns trust levels to selected actors.
+- Trust assignments influence future vote outcomes when the user defers voting.
 
 ---
 
@@ -174,7 +188,7 @@ model Group {
 
 model Vote {
   id          String   @id @default(cuid())
-  title       String 
+  title       String
   description String
   Tags        String[]
   options     Json

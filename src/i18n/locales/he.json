@@ -1,0 +1,25 @@
+{
+  "RootLayout": {},
+  "BaseTemplate": {
+    "description": "רשת חברתית המטרתה לחזק את הדמוקרטיה ולקדם את ההשתתפות האזרחית.",
+    "made_with": "נוצר עם <author></author>."
+  },
+  "Index": {},
+  "SignIn": {
+    "meta_title": "התחברות",
+    "meta_description": "התחבר בקלות לחשבון שלך עם תהליך ההתחברות הידידותי שלנו."
+  },
+  "SignUp": {
+    "meta_title": "הרשמה",
+    "meta_description": "צור חשבון בקלות דרך תהליך ההרשמה האינטואיטיבי שלנו."
+  },
+  "Dashboard": {
+    "meta_title": "לוח בקרה",
+    "hello_message": "שלום {email}!"
+  },
+  "DashboardLayout": {
+    "dashboard_link": "לוח הבקרה",
+    "user_profile_link": "פרופיל משתמש",
+    "sign_out": "התנתקות"
+  }
+}

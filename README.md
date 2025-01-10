@@ -1,36 +1,36 @@
-# Civil Democracy
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## context
+## Getting Started
 
-- Civil democracy platform _to unite global civil society_ [introduction pdf by Dr. Scholz](https://github.com/odedindi/Civil-Democracy/blob/c38ffaf492528b5c809bb169a6f38ad962ae9b73/documentation/introduction.pdf)
-- [second step](https://github.com/odedindi/Civil-Democracy/blob/c38ffaf492528b5c809bb169a6f38ad962ae9b73/documentation/second-step.pdf)
-  [Dev Environment](https://civil-democracy.vercel.app/)
+First, run the development server:
 
-## App Features
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-TBD
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### getting started and important scripts
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- run `yarn dev` to run it locally on [localhost:3000](http://localhost:3000)
-- run `yarn check:types` to check types
-- run `yarn lint` to check linting
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Contributing
+## Learn More
 
-- If you'd like to contribute, please do fork the repository and use a feature branch.
-- Pull requests are most welcome.
+To learn more about Next.js, take a look at the following resources:
 
-## Links
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- word press prototype: https://civil-democracy.ropstam.dev/
-- Project homepage: https://github.com/odedindi/Civil-Democracy
-- Repository: git@github.com:odedindi/Civil-Democracy.git
-- Issue tracker: https://github.com/odedindi/Civil-Democracy/issues
-  #### I value the care and effort to improve the security and privacy of this project!
-- In case of sensitive bugs like security vulnerabilities, please contact
-  odedindi@gmail.com directly instead of using issue tracker.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Licensing
+## Deploy on Vercel
 
-The code in this project is licensed under MIT [license](https://github.com/odedindi/Civil-Democracy/blob/main/LICENSE).
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

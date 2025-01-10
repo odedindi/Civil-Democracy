@@ -1,0 +1,55 @@
+{
+  "RootLayout": {
+    "home_link": "Home",
+    "about_link": "About",
+    "counter_link": "Counter",
+    "portfolio_link": "Portfolio",
+    "sign_in_link": "Sign in",
+    "sign_up_link": "Sign up"
+  },
+  "BaseTemplate": {
+    "description": "Social Network for Civil Democracy",
+    "made_with": "Gemacht mit <author></author>."
+  },
+  "Index": {
+    "meta_title": "Civil Democracy",
+    "meta_description": "Civil Democracy ist ein soziales Netzwerk, das darauf abzielt, die Demokratie zu stärken und die Bürgerbeteiligung zu fördern.",
+    "sponsors_title": "Sponsoren"
+  },
+  "SignIn": {
+    "meta_title": "Anmelden",
+    "meta_description": "Melden Sie sich nahtlos bei Ihrem Konto mit unserem benutzerfreundlichen Anmeldevorgang an."
+  },
+  "SignUp": {
+    "meta_title": "Registrieren",
+    "meta_description": "Erstellen Sie mühelos ein Konto durch unseren intuitiven Registrierungsprozess."
+  },
+  "Dashboard": {
+    "meta_title": "Dashboard",
+    "hello_message": "Hallo {email}!"
+  },
+  "DashboardLayout": {
+    "dashboard_link": "Dashboard",
+    "user_profile_link": "Verwalten Sie Ihr Konto",
+    "sign_out": "Abmelden"
+  },
+  "common": {
+    "welcome": "Willkommen bei Civil Democracy",
+    "feed": "Feed",
+    "profile": "Profil",
+    "network": "Netzwerk",
+    "trust": "Vertrauen",
+    "dashboard": "Dashboard",
+    "participate": "Teilnehmen",
+    "surveys": "Umfragen",
+    "communities": "Communities",
+    "messages": "Nachrichten",
+    "transparency": "Transparenz",
+    "learn": "Lernen",
+    "deliberate": "Deliberate",
+    "aiAssistant": "AI Assistant",
+    "officialSystems": "Official Systems",
+    "achievements": "Achievements",
+    "settings": "Einstellungen"
+  }
+}
