@@ -76,9 +76,9 @@ export default function AIAssistant() {
             <Button onClick={generateAIResponse} disabled={isLoading}>
               {isLoading ? 'Analyzing...' : 'Analyze'}
               {isLoading ? (
-                <Bot className="ml-2 h-4 w-4 animate-spin" />
+                <Bot className="ml-2 size-4 animate-spin" />
               ) : (
-                <Send className="ml-2 h-4 w-4" />
+                <Send className="ml-2 size-4" />
               )}
             </Button>
           </div>

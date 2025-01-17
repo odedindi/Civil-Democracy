@@ -15,6 +15,8 @@ import { Progress } from '@/components/ui/progress';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
+/* eslint-disable @next/next/no-img-element */
+
 type Achievement = {
   id: number;
   title: string;
@@ -52,7 +54,7 @@ export default function CivicEngagementGamification() {
       description: 'Participate in 10 community votes',
       progress: 7,
       maxProgress: 10,
-      icon: <Vote className="h-6 w-6 text-blue-500" />,
+      icon: <Vote className="size-6 text-blue-500" />,
     },
     {
       id: 2,
@@ -60,7 +62,7 @@ export default function CivicEngagementGamification() {
       description: 'Have 5 of your proposals approved',
       progress: 3,
       maxProgress: 5,
-      icon: <Award className="h-6 w-6 text-yellow-500" />,
+      icon: <Award className="size-6 text-yellow-500" />,
     },
     {
       id: 3,
@@ -68,7 +70,7 @@ export default function CivicEngagementGamification() {
       description: 'Connect with 50 citizens in your trust network',
       progress: 32,
       maxProgress: 50,
-      icon: <Users className="h-6 w-6 text-green-500" />,
+      icon: <Users className="size-6 text-green-500" />,
     },
   ]);
 
@@ -205,12 +207,12 @@ export default function CivicEngagementGamification() {
                         <img
                           src={entry.avatar}
                           alt={entry.name}
-                          className="h-8 w-8 rounded-full"
+                          className="size-8 rounded-full"
                         />
                         <span>{entry.name}</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <TrendingUp className="h-4 w-4 text-green-500" />
+                        <TrendingUp className="size-4 text-green-500" />
                         <span className="font-bold">{entry.score}</span>
                       </div>
                     </CardContent>

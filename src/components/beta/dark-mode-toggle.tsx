@@ -14,9 +14,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 const icons = {
-  light: <Sun className="h-5 w-5" />,
-  dark: <Moon className="h-5 w-5" />,
-  system: <MonitorCog className="h-5 w-5" />,
+  light: <Sun className="size-5" />,
+  dark: <Moon className="size-5" />,
+  system: <MonitorCog className="size-5" />,
 };
 
 const ModeToggle: FC<{ mode?: 'button' | 'menu' }> = ({ mode = 'button' }) => {

@@ -19,7 +19,7 @@ const eslintConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   ...tailwind.configs['flat/recommended'],
   js.configs.recommended,
-  ...ts.configs.recommended,
+  ts.configs.eslintRecommended,
   prettier,
   {
     plugins: {

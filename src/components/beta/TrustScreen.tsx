@@ -123,7 +123,7 @@ export default function TrustScreen() {
                   }
                   max={100}
                   step={1}
-                  className="flex-grow"
+                  className="grow"
                 />
                 <span className="w-12 text-right">{actor.trustLevel}%</span>
               </div>

@@ -144,21 +144,21 @@ export default function DeliberationSpaces() {
                   <CardFooter className="py-2">
                     <div className="flex items-center space-x-4">
                       <Button variant="ghost" size="sm">
-                        <ThumbsUp className="mr-1 h-4 w-4" />
+                        <ThumbsUp className="mr-1 size-4" />
                         {comment.likes}
                       </Button>
                       <Button variant="ghost" size="sm">
-                        <ThumbsDown className="mr-1 h-4 w-4" />
+                        <ThumbsDown className="mr-1 size-4" />
                         {comment.dislikes}
                       </Button>
                       {comment.isFactChecked ? (
                         <Badge variant="secondary">
-                          <CheckCircle className="mr-1 h-4 w-4" />
+                          <CheckCircle className="mr-1 size-4" />
                           Fact Checked
                         </Badge>
                       ) : (
                         <Button variant="outline" size="sm">
-                          <AlertTriangle className="mr-1 h-4 w-4" />
+                          <AlertTriangle className="mr-1 size-4" />
                           Request Fact Check
                         </Button>
                       )}

@@ -56,21 +56,21 @@ export default function EnhancedProfile() {
       id: 1,
       title: 'Trusted Voice',
       description: 'Achieved 80%+ trust score',
-      icon: <Shield className="h-6 w-6 text-blue-500" />,
+      icon: <Shield className="size-6 text-blue-500" />,
       earned: true,
     },
     {
       id: 2,
       title: 'Active Citizen',
       description: '90%+ participation rate',
-      icon: <Vote className="h-6 w-6 text-green-500" />,
+      icon: <Vote className="size-6 text-green-500" />,
       earned: true,
     },
     {
       id: 3,
       title: 'Community Leader',
       description: 'Created 10+ successful proposals',
-      icon: <Users className="h-6 w-6 text-purple-500" />,
+      icon: <Users className="size-6 text-purple-500" />,
       earned: true,
     },
   ]);
@@ -80,7 +80,7 @@ export default function EnhancedProfile() {
       <Card>
         <CardHeader>
           <div className="flex items-start space-x-6">
-            <Avatar className="h-24 w-24">
+            <Avatar className="size-24">
               <AvatarImage src="/placeholder.svg?height=96&width=96" />
               <AvatarFallback>JS</AvatarFallback>
             </Avatar>
@@ -93,7 +93,7 @@ export default function EnhancedProfile() {
                   </CardDescription>
                 </div>
                 <Button variant="outline" size="sm">
-                  <Settings className="mr-2 h-4 w-4" />
+                  <Settings className="mr-2 size-4" />
                   Edit Profile
                 </Button>
               </div>
