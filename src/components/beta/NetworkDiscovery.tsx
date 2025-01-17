@@ -68,14 +68,14 @@ export default function NetworkDiscovery() {
     <div className="mx-auto max-w-4xl space-y-6">
       <div className="flex gap-4">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+          <Search className="absolute left-3 top-3 size-4 text-muted-foreground" />
           <Input
             className="pl-9"
             placeholder="Search for people, organizations, or expertise..."
           />
         </div>
         <Button variant="outline">
-          <Filter className="mr-2 h-4 w-4" />
+          <Filter className="mr-2 size-4" />
           Filters
         </Button>
       </div>
@@ -86,7 +86,7 @@ export default function NetworkDiscovery() {
             <CardHeader>
               <div className="flex items-start justify-between">
                 <div className="flex items-start space-x-4">
-                  <Avatar className="h-12 w-12">
+                  <Avatar className="size-12">
                     <AvatarImage src={user.avatar} />
                     <AvatarFallback>{user.name[0]}</AvatarFallback>
                   </Avatar>

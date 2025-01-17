@@ -72,7 +72,7 @@ export default function ParticipationScreen() {
               {decision.options.map((option) => (
                 <div key={option.id} className="flex items-center space-x-2">
                   <span className="w-8 font-medium">{option.rank}.</span>
-                  <span className="flex-grow">{option.text}</span>
+                  <span className="grow">{option.text}</span>
                   <Button
                     onClick={() =>
                       handleRankChange(

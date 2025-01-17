@@ -27,7 +27,7 @@ export default function PreferencesSetup() {
           onClick={() => setTimePreference('sunrise')}
         >
           <CardContent className="flex flex-col items-center p-6">
-            <Sun className="mb-2 h-8 w-8" />
+            <Sun className="mb-2 size-8" />
             <span>Sunrise</span>
           </CardContent>
         </Card>
@@ -37,7 +37,7 @@ export default function PreferencesSetup() {
           onClick={() => setTimePreference('midday')}
         >
           <CardContent className="flex flex-col items-center p-6">
-            <Users className="mb-2 h-8 w-8" />
+            <Users className="mb-2 size-8" />
             <span>Midday</span>
           </CardContent>
         </Card>
@@ -47,7 +47,7 @@ export default function PreferencesSetup() {
           onClick={() => setTimePreference('dark')}
         >
           <CardContent className="flex flex-col items-center p-6">
-            <Moon className="mb-2 h-8 w-8" />
+            <Moon className="mb-2 size-8" />
             <span>Dark</span>
           </CardContent>
         </Card>

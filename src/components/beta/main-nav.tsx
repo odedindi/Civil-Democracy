@@ -52,7 +52,7 @@ export function MainNav() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
-              <Menu className="h-[1.2rem] w-[1.2rem]" />
+              <Menu className="size-[1.2rem]" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </DropdownMenuTrigger>

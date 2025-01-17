@@ -40,7 +40,7 @@ export default function ActorProfile() {
       <Card>
         <CardHeader>
           <div className="flex items-center space-x-4">
-            <Avatar className="h-20 w-20">
+            <Avatar className="size-20">
               <AvatarImage src="/placeholder-user.jpg" alt={actor.name} />
               <AvatarFallback>{actor.name.charAt(0)}</AvatarFallback>
             </Avatar>

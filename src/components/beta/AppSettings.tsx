@@ -26,7 +26,7 @@ export default function AppSettings() {
           </div>
           <div className="flex items-center justify-between">
             <label className="flex items-center space-x-2">
-              <Globe className="h-4 w-4" />
+              <Globe className="size-4" />
               <span>Language</span>
             </label>
             <span className="text-sm text-muted-foreground">English</span>
@@ -41,7 +41,7 @@ export default function AppSettings() {
         <CardContent className="space-y-4">
           <div className="flex items-center justify-between">
             <label className="flex items-center space-x-2">
-              <Bell className="h-4 w-4" />
+              <Bell className="size-4" />
               <span>Push Notifications</span>
             </label>
             <Switch />
@@ -62,7 +62,7 @@ export default function AppSettings() {
         <CardContent className="space-y-4">
           <div className="flex items-center justify-between">
             <label className="flex items-center space-x-2">
-              <Lock className="h-4 w-4" />
+              <Lock className="size-4" />
               <span>Location Access</span>
             </label>
             <Switch />
@@ -76,11 +76,11 @@ export default function AppSettings() {
 
       <div className="space-y-2">
         <Button variant="outline" className="w-full justify-start">
-          <Info className="mr-2 h-4 w-4" />
+          <Info className="mr-2 size-4" />
           App Information
         </Button>
         <Button variant="outline" className="w-full justify-start">
-          <HelpCircle className="mr-2 h-4 w-4" />
+          <HelpCircle className="mr-2 size-4" />
           Support
         </Button>
       </div>

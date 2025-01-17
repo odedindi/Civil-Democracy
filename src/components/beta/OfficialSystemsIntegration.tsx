@@ -97,11 +97,11 @@ export default function OfficialSystemsIntegration() {
   const getStatusIcon = (status: IntegrationStatus) => {
     switch (status) {
       case 'connected':
-        return <CheckCircle className="h-4 w-4 text-green-500" />;
+        return <CheckCircle className="size-4 text-green-500" />;
       case 'pending':
-        return <Clock className="h-4 w-4 text-yellow-500" />;
+        return <Clock className="size-4 text-yellow-500" />;
       case 'error':
-        return <AlertTriangle className="h-4 w-4 text-red-500" />;
+        return <AlertTriangle className="size-4 text-red-500" />;
     }
   };
 
@@ -190,7 +190,7 @@ export default function OfficialSystemsIntegration() {
 
           <Button className="mt-4">
             View All Updates
-            <ArrowUpRight className="ml-2 h-4 w-4" />
+            <ArrowUpRight className="ml-2 size-4" />
           </Button>
         </CardContent>
       </Card>
