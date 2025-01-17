@@ -26,8 +26,6 @@ export const getBaseUrl = () => {
 };
 
 export const getI18nPath = (url: string, locale: string) => {
-  console.log('getI18nPath', url, locale);
-
   if (locale === routing.defaultLocale) return url;
 
   return `/${locale}${url}`;
