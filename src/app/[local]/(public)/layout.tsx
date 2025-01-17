@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { BaseTemplate } from '@/components/BaseTemplate';
 import { LocaleSwitcher } from '@/components/locale-switcher';
+import { MainNav } from '@/components/main-nav';
 
 export default async function Layout(props: { children: React.ReactNode }) {
   const locale = await getLocale();
@@ -16,7 +17,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
 
   return (
     <BaseTemplate
-      leftNav={null}
+      leftNav={<MainNav />}
       rightNav={
         <>
           <li>

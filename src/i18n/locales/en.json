@@ -24,6 +24,9 @@
     "meta_title": "Sign up",
     "meta_description": "Effortlessly create an account through our intuitive sign-up process."
   },
+  "UserProfile": {
+    "meta_title": "User Profile"
+  },
   "Dashboard": {
     "meta_title": "Dashboard",
     "hello_message": "Hello {email}!"

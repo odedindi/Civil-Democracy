@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { notFound } from 'next/navigation';
 
 import ThemeProvider from '@/components/theme-provider';
+import { Toaster } from '@/components/ui/toaster';
 // import { Env } from '@/env';
 import { routing } from '@/i18n/routing';
 // import arcjet, { detectBot, request } from '@/lib/Arcjet';
@@ -72,6 +73,7 @@ export default async function RootLayout({
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             {children}
+            <Toaster />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

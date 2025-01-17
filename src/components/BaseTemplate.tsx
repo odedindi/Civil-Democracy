@@ -2,6 +2,8 @@ import { FC } from 'react';
 
 import { useTranslations } from 'next-intl';
 
+import { Link } from '@/i18n/routing';
+
 import { LocaleSwitcher } from './locale-switcher';
 
 const AppConfig = {
@@ -19,9 +21,11 @@ export const BaseTemplate: FC<{
       <div className="mx-auto max-w-screen-md">
         <header className="border-b border-gray-300">
           <div className="pb-8 pt-16">
-            <h1 className="text-3xl font-bold text-gray-900">
-              {AppConfig.name}
-            </h1>
+            <Link href="/" className="flex items-center space-x-2">
+              <h1 className="inline-block text-3xl font-bold text-gray-900">
+                {AppConfig.name}
+              </h1>
+            </Link>
             <h2 className="mt-6 px-2 text-xl italic">{t('description')}</h2>
           </div>
 
