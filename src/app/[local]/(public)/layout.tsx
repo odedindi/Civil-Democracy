@@ -1,14 +1,11 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
 
 import { BaseTemplate } from '@/components/BaseTemplate';
 import { LocaleSwitcher } from '@/components/locale-switcher';
 
-export default async function Layout(props: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await props.params;
+export default async function Layout(props: { children: React.ReactNode }) {
+  const locale = await getLocale();
 
   setRequestLocale(locale);
 

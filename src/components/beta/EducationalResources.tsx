@@ -138,7 +138,7 @@ export default function EducationalResources() {
                     <CardContent>
                       <p className="text-sm">{article.content}</p>
                       <Button className="mt-4" variant="outline">
-                        <Book className="mr-2 h-4 w-4" />
+                        <Book className="mr-2 size-4" />
                         Read Full Article
                       </Button>
                     </CardContent>
@@ -164,7 +164,7 @@ export default function EducationalResources() {
                         ))}
                       </ol>
                       <Button className="mt-4" variant="outline">
-                        <Play className="mr-2 h-4 w-4" />
+                        <Play className="mr-2 size-4" />
                         Start Interactive Tutorial
                       </Button>
                     </CardContent>
@@ -185,7 +185,7 @@ export default function EducationalResources() {
                   ))}
                 </Accordion>
                 <Button className="mt-4 w-full" variant="outline">
-                  <HelpCircle className="mr-2 h-4 w-4" />
+                  <HelpCircle className="mr-2 size-4" />
                   Ask a Question
                 </Button>
               </ScrollArea>

@@ -53,7 +53,7 @@ export default function CivicAgenda() {
     <div className="mx-auto max-w-md">
       <div className="flex items-center justify-between p-4">
         <h1 className="text-xl font-bold">Today&apos;s Civic Agenda</h1>
-        <Plus className="h-6 w-6" />
+        <Plus className="size-6" />
       </div>
 
       <div className="space-y-4 p-4">
@@ -65,7 +65,7 @@ export default function CivicAgenda() {
               </CardTitle>
               <div className="flex space-x-1">
                 {event.participants.map((participant, index) => (
-                  <Avatar key={index} className="h-6 w-6">
+                  <Avatar key={index} className="size-6">
                     <AvatarImage src={participant.avatar} />
                     <AvatarFallback>{participant.name[0]}</AvatarFallback>
                   </Avatar>
@@ -84,22 +84,22 @@ export default function CivicAgenda() {
         ))}
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 border-t bg-background p-2">
+      <div className="fixed inset-x-0 bottom-0 border-t bg-background p-2">
         <div className="flex justify-around">
           <Button variant="ghost" size="icon">
-            <Home className="h-5 w-5" />
+            <Home className="size-5" />
           </Button>
           <Button variant="ghost" size="icon">
-            <Search className="h-5 w-5" />
+            <Search className="size-5" />
           </Button>
           <Button variant="ghost" size="icon">
-            <Plus className="h-5 w-5" />
+            <Plus className="size-5" />
           </Button>
           <Button variant="ghost" size="icon">
-            <MessageSquare className="h-5 w-5" />
+            <MessageSquare className="size-5" />
           </Button>
           <Button variant="ghost" size="icon">
-            <User className="h-5 w-5" />
+            <User className="size-5" />
           </Button>
         </div>
       </div>

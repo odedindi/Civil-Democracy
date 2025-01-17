@@ -1,3 +1,4 @@
+import { NextPage } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import { Hello } from '@/components/Hello';
@@ -16,10 +17,12 @@ export async function generateMetadata(props: {
   };
 }
 
-export default function Dashboard() {
+const Dashboard: NextPage = async () => {
   return (
     <div className="py-5 [&_p]:my-6">
       <Hello />
     </div>
   );
-}
+};
+
+export default Dashboard;

@@ -1,68 +1,82 @@
 'use client';
 
 import { Check, ChevronDown } from 'lucide-react';
-import { type FC, useTransition } from 'react';
+import { type FC } from 'react';
 
-import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 
-import { Button } from '@/components/ui/button';
+import { Button, type ButtonProps } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { getLanguages, usePathname } from '@/i18n/routing';
+import { type Locale, usePathname, useRouter } from '@/i18n/routing';
+import { cn } from '@/lib/utils';
 
-import { FlagIcon } from './ui/flagIcon';
+import { type CountryCode, FlagIcon } from './ui/flagIcon';
 
-export const LocaleSwitcher: FC = () => {
-  const [isPending, startTransition] = useTransition();
+type LocaleSwitcherProps = Pick<ButtonProps, 'className' | 'variant'>;
+
+const languages: { code: Locale; name: string; countryCode: CountryCode }[] = [
+  { code: 'en', name: 'English', countryCode: 'GB' },
+  { code: 'de', name: 'Deutsch', countryCode: 'DE' },
+  { code: 'he', name: 'Hebrew', countryCode: 'IL' },
+] as const;
+
+export const LocaleSwitcher: FC<LocaleSwitcherProps> = ({
+  className,
+  variant = 'ghost',
+}) => {
+  const t = useTranslations('common.languages');
 
   const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale();
-  const languages = getLanguages();
+
   const currentLanguage =
     languages.find((lang) => lang.code === locale) || languages[0];
+  const currentLanguageIndex = languages.findIndex(
+    (lang) => lang.code === locale,
+  );
+  const selectedIndex = currentLanguageIndex < 1 ? 0 : currentLanguageIndex;
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="ghost"
-          className="w-full justify-start"
+          variant={variant}
+          className={cn('w-full justify-start', className)}
           icon={<ChevronDown className="ml-auto size-4 opacity-50" />}
           iconPlacement="right"
-          title={currentLanguage.name}
+          title={languages[selectedIndex].name}
         >
-          <FlagIcon countryCode={currentLanguage.countryCode} />
-          {currentLanguage.name}
+          <FlagIcon countryCode={languages[selectedIndex].countryCode} />
+          {languages[selectedIndex].name}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {languages.map((lang) => (
+        {languages.map(({ code: locale, countryCode }) => (
           <DropdownMenuItem
-            key={lang.code}
+            key={locale}
             onClick={() => {
-              startTransition(() => {
-                router.push(`/${lang.code}${pathname}`);
-              });
+              router.push(pathname, { locale });
+
+              router.refresh();
             }}
             asChild
-            disabled={isPending}
           >
             <Button
-              variant="ghost"
+              variant={variant}
               className="w-full justify-start"
-              icon={<FlagIcon countryCode={lang.countryCode} />}
+              icon={<FlagIcon countryCode={countryCode} />}
               iconPlacement="left"
-              title={lang.name}
-              disabled={currentLanguage.code === lang.code}
+              title={t(locale)}
+              disabled={currentLanguage.code === locale}
             >
-              <span>{lang.name}</span>
-              {currentLanguage.code === lang.code ? (
+              <span>{t(locale)}</span>
+              {currentLanguage.code === locale ? (
                 <Check className="ml-auto size-4 opacity-50" />
               ) : null}
             </Button>

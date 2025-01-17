@@ -1,47 +1,25 @@
 import { ClerkProvider } from '@clerk/nextjs';
-import { setRequestLocale } from 'next-intl/server';
+import { getLocale, setRequestLocale } from 'next-intl/server';
 
-import { Locale, routing } from '@/i18n/routing';
+import { routing } from '@/i18n/routing';
 import { deDE, enUS, heIL } from '@clerk/localizations';
 
-export default async function AuthLayout(props: {
-  children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
-}) {
-  const { locale } = await props.params;
+const clerkLocaleMap = { en: enUS, de: deDE, he: heIL } as const;
+const clerktDefaulLocale = clerkLocaleMap[routing.defaultLocale];
 
-  console.log('AuthLayout', locale);
+export default async function AuthLayout(props: { children: React.ReactNode }) {
+  const locale = await getLocale();
 
   setRequestLocale(locale);
-  let clerkLocale = enUS;
-  let signInUrl = '/sign-in';
-  let signUpUrl = '/sign-up';
-  let dashboardUrl = '/dashboard';
-  let afterSignOutUrl = '/';
 
-  if (locale !== 'en')
-    switch (locale) {
-      case 'de': {
-        clerkLocale = deDE;
-        break;
-      }
-      case 'he': {
-        clerkLocale = heIL;
-        break;
-      }
-      // default: {
-      //   // @ts-expect-error please add the missing locale
-      //   console.error(`Unsupported locale: ${locale}`);
-      //   break;
-      // }
-    }
+  const prefix =
+    !!locale && locale !== routing.defaultLocale ? `/${locale}` : '/';
 
-  if (locale !== routing.defaultLocale) {
-    signInUrl = `/${locale}${signInUrl}`;
-    signUpUrl = `/${locale}${signUpUrl}`;
-    dashboardUrl = `/${locale}${dashboardUrl}`;
-    afterSignOutUrl = `/${locale}${afterSignOutUrl}`;
-  }
+  const clerkLocale = clerkLocaleMap[locale] ?? clerktDefaulLocale;
+  const signInUrl = `${prefix}/sign-in`;
+  const signUpUrl = `${prefix}/sign-up`;
+  const dashboardUrl = `${prefix}/dashboard`;
+  const afterSignOutUrl = prefix === '/' ? prefix : `${prefix}/`;
 
   return (
     <ClerkProvider

@@ -3,12 +3,6 @@ import { LocalePrefixMode, defineRouting } from 'next-intl/routing';
 
 const localePrefix: LocalePrefixMode = 'as-needed';
 
-export const getLanguages = () => [
-  { code: 'en', name: 'English', countryCode: 'GB' },
-  { code: 'de', name: 'Deutsch', countryCode: 'DE' },
-  { code: 'he', name: 'Hebrew', countryCode: 'IL' },
-];
-
 export const routing = defineRouting({
   locales: ['en', 'de', 'he'], // A list of all locales that are supported
   defaultLocale: 'en', // Used when no locale matches

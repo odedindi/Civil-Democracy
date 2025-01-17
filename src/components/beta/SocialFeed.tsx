@@ -129,7 +129,7 @@ export default function SocialFeed() {
               />
               <div className="flex items-center justify-between">
                 <Button variant="outline" size="sm">
-                  <Globe className="mr-2 h-4 w-4" />
+                  <Globe className="mr-2 size-4" />
                   Public
                 </Button>
                 <Button onClick={createPost}>Post</Button>
@@ -158,7 +158,7 @@ export default function SocialFeed() {
                 </div>
               </div>
               {post.visibility === 'private' && (
-                <Lock className="h-4 w-4 text-muted-foreground" />
+                <Lock className="size-4 text-muted-foreground" />
               )}
             </div>
           </CardHeader>
@@ -173,15 +173,15 @@ export default function SocialFeed() {
                 className={post.isLiked ? 'text-blue-600' : ''}
                 onClick={() => handleLike(post.id)}
               >
-                <ThumbsUp className="mr-2 h-4 w-4" />
+                <ThumbsUp className="mr-2 size-4" />
                 {post.likes}
               </Button>
               <Button variant="ghost" size="sm">
-                <MessageCircle className="mr-2 h-4 w-4" />
+                <MessageCircle className="mr-2 size-4" />
                 {post.comments}
               </Button>
               <Button variant="ghost" size="sm">
-                <Share2 className="mr-2 h-4 w-4" />
+                <Share2 className="mr-2 size-4" />
                 {post.shares}
               </Button>
             </div>
