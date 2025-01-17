@@ -2,6 +2,8 @@ import { FC } from 'react';
 
 import { useTranslations } from 'next-intl';
 
+import { LocaleSwitcher } from './locale-switcher';
+
 const AppConfig = {
   name: 'Civil Democracy',
 };
@@ -20,7 +22,7 @@ export const BaseTemplate: FC<{
             <h1 className="text-3xl font-bold text-gray-900">
               {AppConfig.name}
             </h1>
-            <h2 className="text-xl">{t('description')}</h2>
+            <h2 className="mt-6 px-2 text-xl italic">{t('description')}</h2>
           </div>
 
           <div className="flex justify-between">
@@ -40,8 +42,9 @@ export const BaseTemplate: FC<{
 
         <main>{props.children}</main>
 
-        <footer className="border-t border-gray-300 py-8 text-center text-sm">
+        <footer className="flex flex-col gap-2 border-t border-gray-300 py-8 text-center text-sm">
           {`© Copyright ${new Date().getFullYear()} ${AppConfig.name}. `}
+          <LocaleSwitcher className="w-min self-center" />
           {/* {t.rich('made_with', {
             author: () => (
               <a

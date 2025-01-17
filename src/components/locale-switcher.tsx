@@ -24,7 +24,7 @@ const languages: { code: Locale; name: string; countryCode: CountryCode }[] = [
   { code: 'de', name: 'Deutsch', countryCode: 'DE' },
   { code: 'he', name: 'Hebrew', countryCode: 'IL' },
 ] as const;
-
+const defualtLanguageIndex = 0;
 export const LocaleSwitcher: FC<LocaleSwitcherProps> = ({
   className,
   variant = 'ghost',
@@ -35,12 +35,11 @@ export const LocaleSwitcher: FC<LocaleSwitcherProps> = ({
   const pathname = usePathname();
   const locale = useLocale();
 
-  const currentLanguage =
-    languages.find((lang) => lang.code === locale) || languages[0];
   const currentLanguageIndex = languages.findIndex(
     (lang) => lang.code === locale,
   );
-  const selectedIndex = currentLanguageIndex < 1 ? 0 : currentLanguageIndex;
+  const selectedIndex =
+    currentLanguageIndex === -1 ? defualtLanguageIndex : currentLanguageIndex;
 
   return (
     <DropdownMenu>
@@ -57,11 +56,11 @@ export const LocaleSwitcher: FC<LocaleSwitcherProps> = ({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {languages.map(({ code: locale, countryCode }) => (
+        {languages.map(({ code, countryCode }) => (
           <DropdownMenuItem
-            key={locale}
+            key={code}
             onClick={() => {
-              router.push(pathname, { locale });
+              router.push(pathname, { locale: code });
 
               router.refresh();
             }}
@@ -72,11 +71,11 @@ export const LocaleSwitcher: FC<LocaleSwitcherProps> = ({
               className="w-full justify-start"
               icon={<FlagIcon countryCode={countryCode} />}
               iconPlacement="left"
-              title={t(locale)}
-              disabled={currentLanguage.code === locale}
+              title={t(code)}
+              disabled={languages[selectedIndex].code === code}
             >
-              <span>{t(locale)}</span>
-              {currentLanguage.code === locale ? (
+              <span>{t(code)}</span>
+              {languages[selectedIndex].code === code ? (
                 <Check className="ml-auto size-4 opacity-50" />
               ) : null}
             </Button>

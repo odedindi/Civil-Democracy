@@ -1,4 +1,4 @@
-import { ClerkProvider } from '@clerk/nextjs';
+import { ClerkProvider, GoogleOneTap } from '@clerk/nextjs';
 import { getLocale, setRequestLocale } from 'next-intl/server';
 
 import { routing } from '@/i18n/routing';
@@ -15,21 +15,22 @@ export default async function AuthLayout(props: { children: React.ReactNode }) {
   const prefix =
     !!locale && locale !== routing.defaultLocale ? `/${locale}` : '/';
 
-  const clerkLocale = clerkLocaleMap[locale] ?? clerktDefaulLocale;
-  const signInUrl = `${prefix}/sign-in`;
-  const signUpUrl = `${prefix}/sign-up`;
-  const dashboardUrl = `${prefix}/dashboard`;
+  const onboardingtUrl = `${prefix}/onboarding`;
   const afterSignOutUrl = prefix === '/' ? prefix : `${prefix}/`;
-
   return (
     <ClerkProvider
-      localization={clerkLocale}
-      signInUrl={signInUrl}
-      signUpUrl={signUpUrl}
-      signInFallbackRedirectUrl={dashboardUrl}
-      signUpFallbackRedirectUrl={dashboardUrl}
+      localization={clerkLocaleMap[locale] ?? clerktDefaulLocale}
+      signInUrl={`${prefix}/sign-in`}
+      signUpUrl={`${prefix}/sign-up`}
+      signInFallbackRedirectUrl={`${prefix}/dashboard`}
+      signUpFallbackRedirectUrl={onboardingtUrl}
       afterSignOutUrl={afterSignOutUrl}
     >
+      <GoogleOneTap
+      // signUpForceRedirectUrl={onboardingtUrl}
+      // signInForceRedirectUrl={afterSignOutUrl}
+      />
+
       {props.children}
     </ClerkProvider>
   );
