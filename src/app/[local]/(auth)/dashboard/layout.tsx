@@ -2,7 +2,7 @@ import { SignOutButton, SignedIn, UserButton } from '@clerk/nextjs';
 import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
 
-import { BaseTemplate } from '@/components/BaseTemplate';
+import { BaseLayoutTemplate } from '@/components/layouts/base-layout-template';
 import { LocaleSwitcher } from '@/components/locale-switcher';
 import { Button } from '@/components/ui/button';
 
@@ -17,7 +17,7 @@ export default async function DashboardLayout(props: {
   });
 
   return (
-    <BaseTemplate
+    <BaseLayoutTemplate
       leftNav={
         <>
           <li>
@@ -67,6 +67,6 @@ export default async function DashboardLayout(props: {
       }
     >
       {props.children}
-    </BaseTemplate>
+    </BaseLayoutTemplate>
   );
 }

@@ -94,8 +94,11 @@ function getSurveyData(id: string) {
   };
 }
 
-export default function VotePage({ params }: { params: { id: string } }) {
-  const surveyData = getSurveyData(params.id);
+export default async function VotePage({ params }: { params: { id: string } }) {
+  const awaitedParams = await params;
+  const surveyData = awaitedParams
+    ? getSurveyData(awaitedParams.id)
+    : undefined;
 
   return (
     <div className="container py-8">

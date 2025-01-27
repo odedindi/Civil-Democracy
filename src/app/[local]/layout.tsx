@@ -68,7 +68,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={direction} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} h-screen w-screen antialiased`}
       >
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>

@@ -15,8 +15,8 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 
+import { ModeToggle } from '../dark-mode-toggle';
 import { LocaleSwitcher as LanguageSwitcher } from '../locale-switcher';
-import ModeToggle from './dark-mode-toggle';
 
 const navItems = [
   { href: '/', label: 'Home' },

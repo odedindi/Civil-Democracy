@@ -1,3 +1,4 @@
+// @ts-check
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
@@ -15,7 +16,7 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-/** @type {import('eslint').Linter.Config} */
+/** @type {import('typescript-eslint').Config} */
 const eslintConfig = ts.config([
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   { ignores: ['node_modules', 'dist', '.next'] },

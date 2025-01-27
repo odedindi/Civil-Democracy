@@ -151,11 +151,11 @@ const voteResultsData = [
   },
 ];
 
-export function VoteScreen({ survey }: { survey: Survey }) {
+export function VoteScreen({ survey }: { survey?: Survey }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userVotes, setUserVotes] = useState<Record<string, Option[]>>({});
 
-  const currentQuestion = survey.questions[currentQuestionIndex];
+  const currentQuestion = survey?.questions[currentQuestionIndex];
 
   const handleSubmit = () => {
     console.log('Submitting votes:', userVotes);
@@ -166,6 +166,7 @@ export function VoteScreen({ survey }: { survey: Survey }) {
   };
 
   const timeRemaining = () => {
+    if (!survey) return '';
     const now = new Date();
     const diff = survey.expiryTime.getTime() - now.getTime();
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -174,6 +175,7 @@ export function VoteScreen({ survey }: { survey: Survey }) {
   };
 
   const handleNavigate = (direction: 'prev' | 'next') => {
+    if (!survey) return;
     if (direction === 'prev' && currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
     } else if (
@@ -185,12 +187,20 @@ export function VoteScreen({ survey }: { survey: Survey }) {
   };
 
   const handleVote = (options: Option[]) => {
+    if (!currentQuestion) return;
     setUserVotes((prev) => ({
       ...prev,
       [currentQuestion.id]: options,
     }));
   };
 
+  if (!survey || !currentQuestion) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <p className="text-center text-lg">Survey not found.</p>
+      </div>
+    );
+  }
   return (
     <div className="container mx-auto px-4 py-8">
       <Card className="mb-8">

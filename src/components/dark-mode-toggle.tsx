@@ -12,6 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useIsClient } from '@uidotdev/usehooks';
 
 const icons = {
   light: <Sun className="size-5" />,
@@ -19,9 +20,10 @@ const icons = {
   system: <MonitorCog className="size-5" />,
 };
 
-const ModeToggle: FC<{ mode?: 'button' | 'menu' }> = ({ mode = 'button' }) => {
+export const ModeToggle: FC<{ mode?: 'button' | 'menu' }> = ({
+  mode = 'button',
+}) => {
   const { theme = 'light', setTheme, themes } = useTheme();
-
   const getNextThemeMode = useCallback(
     (currentTheme: typeof theme) => {
       const currentIndex = themes.indexOf(currentTheme);
@@ -36,6 +38,11 @@ const ModeToggle: FC<{ mode?: 'button' | 'menu' }> = ({ mode = 'button' }) => {
     [themes],
   );
 
+  const isClient = useIsClient();
+  // avoid hydration mismatch
+  const getIcon = (themeMode: typeof theme) =>
+    isClient ? icons[themeMode as keyof typeof icons] : null;
+
   if (mode === 'button')
     return (
       <Button
@@ -43,7 +50,7 @@ const ModeToggle: FC<{ mode?: 'button' | 'menu' }> = ({ mode = 'button' }) => {
         variant="ghost"
         onClick={() => setTheme(getNextThemeMode(theme))}
       >
-        {icons[theme as keyof typeof icons]}
+        {getIcon(theme)}
         <span className="sr-only">Toggle theme</span>
       </Button>
     );
@@ -51,7 +58,7 @@ const ModeToggle: FC<{ mode?: 'button' | 'menu' }> = ({ mode = 'button' }) => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="w-full">
         <Button className="w-full" variant="ghost">
-          {icons[theme as keyof typeof icons]}
+          {getIcon(theme)}
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
@@ -65,7 +72,7 @@ const ModeToggle: FC<{ mode?: 'button' | 'menu' }> = ({ mode = 'button' }) => {
             <Button
               variant="ghost"
               className="w-full justify-start"
-              icon={icons[themeOption as keyof typeof icons]}
+              icon={getIcon(themeOption)}
               iconPlacement="left"
             >
               {themeOption}
@@ -76,5 +83,3 @@ const ModeToggle: FC<{ mode?: 'button' | 'menu' }> = ({ mode = 'button' }) => {
     </DropdownMenu>
   );
 };
-
-export default ModeToggle;

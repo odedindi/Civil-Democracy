@@ -3,6 +3,7 @@
 import { Menu } from 'lucide-react';
 import * as React from 'react';
 
+import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -22,16 +23,29 @@ const navItems = [
   { href: '/actors', label: 'Actors' },
   { href: '/about', label: 'About' },
   { href: '/faq', label: 'FAQ' },
-  { href: '/login', label: 'Login' },
 ];
 
-export function MainNav() {
-  const pathname = usePathname();
+const authenticatedNavItems = [{ href: '/sign-out', label: 'Sign Out' }];
 
+const unAuthenticatedNavItems = [
+  { href: '/sign-in', label: 'Sign In' },
+  { href: '/sign-up', label: 'Sign Up' },
+];
+
+export function BaseNav() {
+  const pathname = usePathname();
+  const user = useUser();
+  const navLinks = React.useMemo(
+    () =>
+      user
+        ? [...navItems, ...authenticatedNavItems]
+        : [...navItems, ...unAuthenticatedNavItems],
+    [user],
+  );
   return (
-    <nav className="flex items-center space-x-4 lg:space-x-6">
-      <div className="hidden items-center space-x-4 md:flex lg:space-x-6">
-        {navItems.map((item) => (
+    <nav className="flex items-center space-x-4 lg:space-x-6 rtl:px-3">
+      <div className="hidden items-center space-x-4 py-2 md:flex lg:space-x-6">
+        {navLinks.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -53,7 +67,7 @@ export function MainNav() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            {navItems.map((item) => (
+            {navLinks.map((item) => (
               <DropdownMenuItem key={item.href} asChild>
                 <Link
                   href={item.href}

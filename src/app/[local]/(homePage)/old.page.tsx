@@ -107,25 +107,23 @@ export default function CivilDemocracy() {
   const t = useTranslations('common');
 
   return (
-    <main>
-      <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <div className="px-4 py-6 sm:px-0">
-          <div className="mb-6 flex flex-wrap justify-center gap-2">
-            {tabs.map((item, i) => (
-              <Button
-                key={i}
-                onClick={() => setActiveScreen(item)}
-                variant={activeScreen === item ? 'default' : 'outline'}
-              >
-                {t(item)}
-              </Button>
-            ))}
-          </div>
-          <Suspense fallback={<div>Loading...</div>}>
-            {renderScreen(activeScreen)}
-          </Suspense>
+    <div className="xs:px-4 mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+      <div className="px-4 py-6 sm:px-0">
+        <div className="mb-6 flex flex-wrap justify-center gap-2">
+          {tabs.map((item, i) => (
+            <Button
+              key={i}
+              onClick={() => setActiveScreen(item)}
+              variant={activeScreen === item ? 'default' : 'outline'}
+            >
+              {t(item)}
+            </Button>
+          ))}
         </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          {renderScreen(activeScreen)}
+        </Suspense>
       </div>
-    </main>
+    </div>
   );
 }
