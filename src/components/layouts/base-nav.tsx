@@ -3,6 +3,7 @@
 import { Menu } from 'lucide-react';
 import * as React from 'react';
 
+import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -15,9 +16,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 
-import { ModeToggle } from '../dark-mode-toggle';
-import { LocaleSwitcher as LanguageSwitcher } from '../locale-switcher';
-
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/participate', label: 'Participate' },
@@ -25,16 +23,29 @@ const navItems = [
   { href: '/actors', label: 'Actors' },
   { href: '/about', label: 'About' },
   { href: '/faq', label: 'FAQ' },
-  { href: '/login', label: 'Login' },
 ];
 
-export function MainNav() {
-  const pathname = usePathname();
+const authenticatedNavItems = [{ href: '/sign-out', label: 'Sign Out' }];
 
+const unAuthenticatedNavItems = [
+  { href: '/sign-in', label: 'Sign In' },
+  { href: '/sign-up', label: 'Sign Up' },
+];
+
+export function BaseNav() {
+  const pathname = usePathname();
+  const user = useUser();
+  const navLinks = React.useMemo(
+    () =>
+      user
+        ? [...navItems, ...authenticatedNavItems]
+        : [...navItems, ...unAuthenticatedNavItems],
+    [user],
+  );
   return (
-    <nav className="flex items-center space-x-4 lg:space-x-6">
-      <div className="hidden items-center space-x-4 md:flex lg:space-x-6">
-        {navItems.map((item) => (
+    <nav className="flex items-center space-x-4 lg:space-x-6 rtl:px-3">
+      <div className="hidden items-center space-x-4 py-2 md:flex lg:space-x-6">
+        {navLinks.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -46,7 +57,6 @@ export function MainNav() {
             {item.label}
           </Link>
         ))}
-        <ModeToggle mode="menu" />
       </div>
       <div className="md:hidden">
         <DropdownMenu>
@@ -57,7 +67,7 @@ export function MainNav() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            {navItems.map((item) => (
+            {navLinks.map((item) => (
               <DropdownMenuItem key={item.href} asChild>
                 <Link
                   href={item.href}
@@ -72,12 +82,6 @@ export function MainNav() {
                 </Link>
               </DropdownMenuItem>
             ))}
-            <DropdownMenuItem asChild>
-              <ModeToggle />
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <LanguageSwitcher />
-            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

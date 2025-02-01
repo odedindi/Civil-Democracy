@@ -1,6 +1,10 @@
+import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
+import { getLocale, setRequestLocale } from 'next-intl/server';
 
+import { routing } from '@/i18n/routing';
 import '@/styles/globals.css';
+import { deDE, enUS, heIL } from '@clerk/localizations';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -29,10 +33,29 @@ export const metadata: Metadata = {
   ],
 };
 
-export default async function Layout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
+const clerkLocaleMap = { en: enUS, de: deDE, he: heIL } as const;
+const clerktDefaulLocale = clerkLocaleMap[routing.defaultLocale];
+
+export default async function AuthLayout(props: { children: React.ReactNode }) {
+  const locale = await getLocale();
+
+  setRequestLocale(locale);
+
+  const prefix =
+    !!locale && locale !== routing.defaultLocale ? `/${locale}` : '/';
+
+  const onboardingtUrl = `${prefix}/onboarding`;
+  const afterSignOutUrl = prefix === '/' ? prefix : `${prefix}/`;
+  return (
+    <ClerkProvider
+      localization={clerkLocaleMap[locale] ?? clerktDefaulLocale}
+      signInUrl={`${prefix}/sign-in`}
+      signUpUrl={`${prefix}/sign-up`}
+      signInFallbackRedirectUrl={`${prefix}/dashboard`}
+      signUpFallbackRedirectUrl={onboardingtUrl}
+      afterSignOutUrl={afterSignOutUrl}
+    >
+      {props.children}
+    </ClerkProvider>
+  );
 }

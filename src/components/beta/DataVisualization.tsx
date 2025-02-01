@@ -83,7 +83,7 @@ export default function DataVisualization() {
                   `${name} ${(percent * 100).toFixed(0)}%`
                 }
               >
-                {trustDistributionData.map((entry, index) => (
+                {trustDistributionData.map((_entry, index) => (
                   <Cell
                     key={`cell-${index}`}
                     fill={COLORS[index % COLORS.length]}
