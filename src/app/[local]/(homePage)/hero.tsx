@@ -31,8 +31,8 @@ function Hero() {
             </Button>
           </div>
           <div className="flex flex-col gap-4">
-            <h1 className="font-regular max-w-2xl text-center text-5xl tracking-tighter md:text-7xl">
-              <span className="text-spektr-cyan-50">This is something</span>
+            <h1 className="max-w-2xl text-center text-5xl tracking-tighter md:text-7xl">
+              <span>This is something</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
