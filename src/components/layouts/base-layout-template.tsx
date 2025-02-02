@@ -26,7 +26,7 @@ export const BaseLayoutTemplate: FC<{
             </nav>
           </div>
           {props.header ? (
-            <div className="px-4 pb-4 pt-16">{props.header}</div>
+            <div className="px-4 pb-4 pt-20">{props.header}</div>
           ) : null}
         </header>
 

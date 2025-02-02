@@ -28,7 +28,8 @@ export default function middleware(
     return clerkMiddleware(
       async (auth, req) => {
         if (isProtectedRoute(req)) {
-          const locale = req.nextUrl.pathname.match(/^\/([a-z]{2})\//)?.[1];
+          const locale =
+            req.nextUrl.pathname.match(/^\/([a-z]{2})\//)?.[1] ?? '';
           // console.info('clerk: locale inprotected rout', locale);
           const signInUrl = new URL(`${locale}/sign-in`, req.url);
 
@@ -46,8 +47,7 @@ export default function middleware(
       },
     )(request, event);
   }
-
-  return intlMiddleware(request);
+  return clerkMiddleware((_, req) => intlMiddleware(req))(request, event);
 }
 
 export const config = {

@@ -25,10 +25,7 @@ const languages: { code: Locale; name: string; countryCode: CountryCode }[] = [
   { code: 'he', name: 'Hebrew', countryCode: 'IL' },
 ] as const;
 const defualtLanguageIndex = 0;
-export const LocaleSwitcher: FC<LocaleSwitcherProps> = ({
-  className,
-  variant = 'ghost',
-}) => {
+export const LocaleSwitcher: FC<LocaleSwitcherProps> = ({ className }) => {
   const t = useTranslations('common.languages');
 
   const router = useRouter();
@@ -40,7 +37,7 @@ export const LocaleSwitcher: FC<LocaleSwitcherProps> = ({
   );
   const selectedIndex =
     currentLanguageIndex === -1 ? defualtLanguageIndex : currentLanguageIndex;
-
+  const variant = 'ghost';
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -55,7 +52,7 @@ export const LocaleSwitcher: FC<LocaleSwitcherProps> = ({
           {languages[selectedIndex].name}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="flex flex-col gap-1">
         {languages.map(({ code, countryCode }) => (
           <DropdownMenuItem
             key={code}
@@ -71,6 +68,7 @@ export const LocaleSwitcher: FC<LocaleSwitcherProps> = ({
               className="w-full justify-start"
               icon={<FlagIcon countryCode={countryCode} />}
               iconPlacement="left"
+              role="menuitem"
               title={t(code)}
               disabled={languages[selectedIndex].code === code}
             >
